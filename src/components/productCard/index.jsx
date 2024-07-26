@@ -50,7 +50,7 @@ const ProductCard = ({ images, title, description, price }) => {
                                 height="200"
                                 image={images[0]}
                                 alt={title}
-                                sx={{ objectFit: 'cover', borderRadius: '10px', marginTop: '15px', marginBottom: '15px', width: '100%' }} //retirar o marginBottom caso remover o height auto no box principal deste componente 
+                                sx={{ objectFit: 'cover', borderRadius: '10px', marginTop: '15px', marginBottom: '15px', width: '100%' }}
                             />
                             <Box height={10} />
                         </>
@@ -74,7 +74,7 @@ const ProductCard = ({ images, title, description, price }) => {
                                 {isLongDescription ? (
                                     <>
                                         {showMore ? description : `${description.substring(0, maxDescriptionLength)}...`}
-                                        <Button size="small" onClick={toggleDrawer(true)}>
+                                        <Button sx={{ color: "#da5c5d", fontWeight: "bold" }} onClick={toggleDrawer(true)}>
                                             {showMore ? 'Ver menos' : 'Ver mais'}
                                         </Button>
                                     </>
@@ -84,21 +84,21 @@ const ProductCard = ({ images, title, description, price }) => {
                                     </Typography>
                                 )}
                             </Typography>
+                            
                         </Stack>
                     </Stack>
                 </CardContent>
                 <CardActions>
                     <Box display="flex" width="100%">
-                        <Button variant="contained" fullWidth sx={{ backgroundColor: "#da5c5d" }}>
+                        <Button variant="contained" fullWidth sx={{ backgroundColor: "#da5c5d", borderRadius: '5px', margin: '10px' }}>
                             Adicionar no carrinho
                         </Button>
                     </Box>
-
                 </CardActions>
             </Card>
 
             <Dialog anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-                <div style={{ width: 350, padding: 20 }}>
+                <Box sx={{ width: 350, padding: 20 }}>
                     <IconButton
                         onClick={toggleDrawer(false)}
                         sx={{
@@ -148,7 +148,7 @@ const ProductCard = ({ images, title, description, price }) => {
                             }}>
                                 {title}
                             </Typography>
-                            <Typography variant="h5" fontWeight="bold" component="div" padding="10px 0 10px 0" lineHeight='33px' borderTop='2px solid #f1eaea' >
+                            <Typography variant="h5" fontWeight="bold" color='#da5c5d' component="div" padding="10px 0 10px 0" lineHeight='33px' borderTop='2px solid #f1eaea' >
                                 {price}
                             </Typography>
                             <Typography variant="body2" color="#9E9E9E">
@@ -163,7 +163,7 @@ const ProductCard = ({ images, title, description, price }) => {
                             </Box>
                         </CardActions>
                     </Card>
-                </div>
+                </Box>
             </Dialog>
         </>
     );

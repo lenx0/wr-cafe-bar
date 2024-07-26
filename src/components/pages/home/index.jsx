@@ -8,28 +8,22 @@ const Home = () => {
         {
             images: ["/products/frangopassarinho.jpeg"],
             title: "Frango a passarinho",
-            description: "uma porção de frango a passarinho de 600g",
+            description: "Porção de frango a passarinho serve até 3 pessoas",
+            garnish: `Exemplo`,
             price: "R$19,90"
         },
         {
-            images: ["/products/picanha-com-arroz.jpeg", "/products/calabresa-acebolada.jpeg"],
+            images: ["/products/picanha-com-arroz.jpeg"],
             title: "Picanha à moda do chef-500G",
-            description: `Picanha à Moda do Chef - 
-                    500GR Uma Celebração da Carne de 
-                    Qualidade Serve até 2 Pessoas 
-                    Prepare-se para uma experiência 
-                    gastronômica de classe mundial com a nossa 
-                    Picanha à Moda do Chef. Este prato é a expressão 
-                    suprema da qualidade e do sabor da carne, preparado de 
-                    forma única pelo nosso chef mestre. Nossa picanha é cuidadosamente 
-                    selecionada, garantindo a maciez e o sabor incomparáveis que fazem 
-                    dela um corte de carne tão apreciado.`,
+            description: `Picanha preparada com tecnicas da casa.`,
+            garnish: `Arroz a grega`,
             price: "R$120,00"
         },
         {
             images: ["/products/frangopassarinho.jpeg"],
-            title: "Frango a passarinho",
-            description: "uma porção de frango a passarinho de 600g",
+            title: "Calabresa acebolada 400G",
+            description: "Porção deliciosa de calabresa com cebolas preparadas na medida certa",
+            garnish: `Exemplo`,
             price: "R$19,90"
         },
     ]
