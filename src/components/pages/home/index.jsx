@@ -4,27 +4,29 @@ import MenuBar from '../../menuBar'
 
 const Home = () => {
 
+    const imgBaseUrl = "/products/"
+
     const products = [
         {
-            images: ["/products/frangopassarinho.jpeg"],
+            images: [`${imgBaseUrl}frangopassarinho.jpeg`],
             title: "Frango a passarinho",
             description: "Porção de frango a passarinho serve até 3 pessoas",
             garnish: `Exemplo`,
             price: "R$19,90"
         },
         {
-            images: ["/products/picanha-com-arroz.jpeg"],
+            images: [`${imgBaseUrl}picanha-com-arroz.jpeg`],
             title: "Picanha à moda do chef-500G",
             description: `Picanha preparada com tecnicas da casa.`,
             garnish: `Arroz a grega`,
             price: "R$120,00"
         },
         {
-            images: ["/products/frangopassarinho.jpeg"],
+            images: [`${imgBaseUrl}calabresa-acebolada.jpeg`, `${imgBaseUrl}calabresa-acebolada2.jpeg`],
             title: "Calabresa acebolada 400G",
             description: "Porção deliciosa de calabresa com cebolas preparadas na medida certa",
             garnish: `Exemplo`,
-            price: "R$19,90"
+            price: "R$23,90"
         },
     ]
 

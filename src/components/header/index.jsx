@@ -1,11 +1,19 @@
 import { Box, Input } from "@mui/material";
 import SearchBar from "../searchBar";
+import Cart from "../cart";
 
 const Header = () => {
     return (
-        <Box display="flex" backgroundColor="#da5c5d" height={80} textAlign="center" justifyContent="center" alignItems="center">
-            <Box width={400}>
-                <SearchBar placeholder="busque um produto" />
+        <Box display="flex" width="100%" backgroundColor="#da5c5d" height={80} textAlign="center" justifyContent="space-between" alignItems="center" padding="0 20px">
+            <Box flex="1" display="flex" justifyContent="center">
+                <Box width="50%">
+                    <SearchBar placeholder="busque um produto" />
+                </Box>
+            </Box>
+            <Box>
+                <Box>
+                    <Cart />
+                </Box>
             </Box>
         </Box>
     )
