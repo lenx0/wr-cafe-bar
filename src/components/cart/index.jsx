@@ -1,4 +1,4 @@
-import { Box, Drawer, IconButton } from "@mui/material";
+import { Box, Drawer, IconButton, Typography } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from "react";
@@ -33,6 +33,9 @@ export default function () {
                     >
                         <CloseIcon />
                     </IconButton>
+                    <Typography>
+                        Items
+                    </Typography>
                 </Box>
             </Drawer>
 

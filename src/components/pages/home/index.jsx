@@ -1,8 +1,10 @@
-import { Box, Container, CssBaseline, Grid } from '@mui/material'
+import { Container, CssBaseline, Grid } from '@mui/material'
 import ProductCard from '../../productCard'
 import MenuBar from '../../menuBar'
+import { useState } from 'react';
 
 const Home = () => {
+    const [cartItems, setCartItems] = useState([]);
 
     const imgBaseUrl = "/products/"
 
@@ -30,6 +32,20 @@ const Home = () => {
         },
     ]
 
+    const handleAddToCart = (product) => {
+        setCartItems((prevItems) => {
+            const existingItem = prevItems.find(item => item.title === product.title);
+            if (existingItem) {
+                return prevItems.map(item =>
+                    item.title === product.title ? { ...item, quantity: item.quantity + 1 } : item
+                );
+            }
+            return [...prevItems, { ...product, quantity: 1 }];
+        });
+    };
+
+    console.log("cart Items", cartItems)
+
     return (
         <>
             <MenuBar />
@@ -43,6 +59,7 @@ const Home = () => {
                                 title={product.title}
                                 description={product.description}
                                 price={product.price}
+                                onAddToCart={() => handleAddToCart(product)}
                             />
                         </Grid>
                     ))}

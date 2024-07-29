@@ -3,9 +3,10 @@ import { Card, CardContent, CardMedia, Typography, CardActions, Button, Box, Dia
 import CloseIcon from '@mui/icons-material/Close';
 import Carousel from 'react-material-ui-carousel';
 
-const ProductCard = ({ images, title, description, price }) => {
+const ProductCard = ({ images, title, description, price, onAddToCart }) => {
     const [showMore, setShowMore] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [cartItems, setCartItems] = useState([])
 
     const toggleDrawer = (open) => () => {
         setDrawerOpen(open);
@@ -90,7 +91,7 @@ const ProductCard = ({ images, title, description, price }) => {
                 </CardContent>
                 <CardActions>
                     <Box display="flex" width="100%">
-                        <Button variant="contained" fullWidth sx={{ backgroundColor: "#da5c5d", borderRadius: '5px', margin: '10px' }}>
+                        <Button variant="contained" onClick={onAddToCart} fullWidth sx={{ backgroundColor: "#da5c5d", borderRadius: '5px', margin: '10px' }}>
                             Adicionar no carrinho
                         </Button>
                     </Box>
