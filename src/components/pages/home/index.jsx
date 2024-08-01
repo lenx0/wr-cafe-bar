@@ -1,206 +1,106 @@
-import { Box, Container, CssBaseline, Grid } from '@mui/material'
-import ProductCard from '../../productCard'
-import MenuBar from '../../menuBar'
-import { useState } from 'react'
-import Header from '../../header'
+import React from 'react';
+import { Box, Button, Typography, Container, Grid } from '@mui/material';
+import { styled } from '@mui/system';
+import { Link } from 'react-router-dom';
 
-const Home = () => {
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
 
-    const imgBaseUrl = "/products/"
+const Banner = styled('img')({
+    width: '100%',
+    height: 'auto',
+    maxHeight: '600px',
+    objectFit: 'cover'
+});
 
-    const products = [
-        {
-            images: [`${imgBaseUrl}frangopassarinho.jpeg`],
-            category: "portions",
-            title: "Frango a passarinho",
-            description: "Porção de frango a passarinho serve até 3 pessoas",
-            price: "R$19,90"
-        },
-        {
-            images: [`${imgBaseUrl}picanha-com-arroz.jpeg`],
-            category: "portions",
-            title: "Picanha 500G",
-            description: `Picanha preparada com tecnicas da casa.`,
-            garnish: `Arroz a grega`,
-            price: "R$120,00"
-        },
-        {
-            images: [`${imgBaseUrl}calabresa-acebolada.jpeg`, `${imgBaseUrl}calabresa-acebolada2.jpeg`],
-            category: "portions",
-            title: "Calabresa acebo. 400G",
-            description: "Porção deliciosa de calabresa com cebolas preparadas na medida certa",
-            price: "R$23,90"
-        },
-        {
-            images: [`${imgBaseUrl}porcao-frios.jpeg`],
-            category: "portions",
-            title: "Porção de frios 500G",
-            description: "Porção de frio com azeite e limão",
-            price: "R$39,90"
-        },
-        {
-            images: [`${imgBaseUrl}porcao-batata.jpeg`, `${imgBaseUrl}porcao-batata2.jpeg`],
-            category: "portions",
-            title: "Porção de fritas 500G",
-            description: "Porção de batata frita, serve 2 a 3 pessoas",
-            price: "R$30,90"
-        },
-        {
-            images: [`${imgBaseUrl}porcao-tilapia.jpeg`],
-            category: "portions",
-            title: "Porção de tilápia",
-            description: "Porção de tilápia com limão",
-            garnish: `Exemplo`,
-            price: "R$27,90"
-        },
-        {
-            images: [`${imgBaseUrl}coca-cola.jpeg`],
-            category: "drinks",
-            title: "Coca-Cola 2L",
-            description: "Bebida sabor cola",
-            price: "R$5,00"
-        },
-        {
-            images: [`${imgBaseUrl}fanta-laranja.jpeg`],
-            category: "drinks",
-            title: "Fanta laranja 350ml",
-            description: "Bebida sabor laranja",
-            price: "R$5,00"
-        },
-        {
-            images: [`${imgBaseUrl}guarana-lata.jpeg`],
-            category: "drinks",
-            title: "Guaraná 350ml",
-            description: "Bebida sabor guaraná",
-            price: "R$5,00"
-        },
-        {
-            images: [`${imgBaseUrl}sprite-lata.jpeg`],
-            category: "drinks",
-            title: "Sprite 350ml",
-            description: "Bebida sabor sprite",
-            price: "R$5,00"
-        },
-        {
-            images: [`${imgBaseUrl}schweppescitrus-lata.jpeg`],
-            category: "drinks",
-            title: "Schweppes Citrus 350ml",
-            description: "Bebida sabor Citrus",
-            price: "R$5,00"
-        },
-        {
-            images: [`${imgBaseUrl}marlboro.jpeg`],
-            category: "cigar",
-            title: "Cigarro Marlboro vermelho",
-            description: "",
-            price: "R$10,00"
-        },
-        {
-            images: [`${imgBaseUrl}vinho-salton.jpeg`],
-            category: "vine",
-            title: "Vinho Salton 900ML",
-            description: "Elaborado apenas com uvas selecionadas, ainda nos vinhedos, na região da Campanha Gaúcha, e apenas em safras especiais",
-            price: "R$10,00"
-        },
-        {
-            images: [`${imgBaseUrl}vinho-toroloco.jpeg`],
-            category: "vine",
-            title: "Vinho Toro Loco 900ML",
-            description: "Toro Loco nasceu há alguns anos, no território de Utiel-Requena, com 30.000 hectares, dos quais 10.000 hectares são cultivados e colhidos principalmente à mão por 3.000 famílias.",
-            price: "R$10,00"
-        },
-        {
-            images: [`${imgBaseUrl}pudim.jpeg`],
-            category: "dessert",
-            title: "Pudim Doce de Leite",
-            description: "Pudim de doce de leite",
-            price: "R$6,00"
-        },
-        {
-            images: [`${imgBaseUrl}bolo-taca.jpeg`],
-            category: "dessert",
-            title: "Bolo na taça",
-            description: "Bolo com recheio de leite ninho ",
-            price: "R$15,00"
-        },
-        {
-            images: [`${imgBaseUrl}arroz-branco.jpeg`],
-            category: "additional",
-            title: "Arroz Branco 350G",
-            description: "Arroz branco simples",
-            price: "R$5,00"
-        },
-        {
-            images: [`${imgBaseUrl}arroz-temperado.jpeg`],
-            category: "additional",
-            title: "Arroz Temperado 700G",
-            description: "Porção de arroz temperado com azeitonas, pedaços de frango, bacon e ervilhas",
-            price: "R$10,00"
-        },
-        {
-            images: [`${imgBaseUrl}salada.jpeg`],
-            category: "additional",
-            title: "Mix de salada",
-            description: "Alface, tomate, agrião, cebola e limão  ",
-            price: "R$8,00"
-        },
-        {
-            images: [`${imgBaseUrl}farofa-temperada.jpeg`],
-            category: "additional",
-            title: "Farofa Brasileira temperada",
-            description: "Farofa temperada com bacon e especiarias da casa",
-            price: "R$7,00"
-        },
-        {
-            images: [`${imgBaseUrl}gelo.jpeg`],
-            category: "ice",
-            title: "Gelo 2KG",
-            description: "Gelo em cubos",
-            price: "R$10,00"
-        },
-    ]
-    const [searchValue, setSearchValue] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('portions');
+const Footer = styled('footer')({
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    backgroundColor: '#333',
+    color: '#fff',
+    padding: '20px',
+    textAlign: 'center',
+    marginTop: '40px',
+    borderTop: '1px solid #444',
+});
 
-    const handleSearchChange = (event) => {
-        setSearchValue(event.target.value);
-    };
+const SocialIcon = styled('a')({
+    color: '#fff',
+    margin: '0 10px',
+    fontSize: '24px',
+    textDecoration: 'none',
+    '&:hover': {
+        color: '#da5c5d',
+    },
+});
 
-    const handleCategoryChange = (category) => {
-        setSelectedCategory(category);
-    };
-
-    const filteredProducts = products.filter((product) => {
-        const matchesSearch = product.title.toLowerCase().includes(searchValue.toLowerCase());
-        const matchesCategory = selectedCategory ? product.category === selectedCategory : true;
-        return matchesSearch && matchesCategory;
-    });
-
+export default function Home() {
     return (
-        //xs sm md lg xl
-        <>
-            <Header searchValue={searchValue} onSearchChange={handleSearchChange} />
-            <Grid container justifyContent="center">
-                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                    <MenuBar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
-                </Grid>
-            </Grid>
-            <CssBaseline />
-            <Grid container spacing={2} justifyContent="center" padding={2}>
-                {filteredProducts.map((product, index) => (
-                    <Grid item key={index} xs={12} sm={6} md={3} lg={3} xl={2}>
-                        <ProductCard
-                            images={product.images}
-                            category={product.category}
-                            title={product.title}
-                            description={product.description}
-                            price={product.price}
-                        />
-                    </Grid>
-                ))}
-            </Grid>
-        </>
-    )
-}
+        <Box>
+            <Banner src="/images/banner-home.jpeg" alt="Banner do Barzinho" />
 
-export default Home
+            <Container>
+                <Grid container spacing={3} justifyContent="center" marginTop={4}>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <a href="https://api.whatsapp.com/send/?phone=554498019717&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0">
+                            <Button
+                                variant="contained"
+                                fullWidth
+                                sx={{ backgroundColor: '#333', color: '#fff' }}
+                                startIcon={<WhatsAppIcon />}
+                            >
+                                Whatsapp
+                            </Button>
+                        </a>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <Link to="/catalog">
+                            <Button
+                                variant="contained"
+                                fullWidth
+                                sx={{ backgroundColor: '#333', color: '#fff' }}
+                                startIcon={<MenuBookIcon />}
+                            >
+                                Cardápio
+                            </Button>
+                        </Link>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <a href="https://www.google.com/maps/place/WR+Caf%C3%A9+Bar/@-23.4117287,-51.9552946,15z/data=!4m2!3m1!1s0x0:0x15b6c4880cf18cbd?sa=X&ved=1t:2428&ictx=111">
+                            <Button
+                                variant="contained"
+                                fullWidth
+                                sx={{ backgroundColor: '#333', color: '#fff' }}
+                                startIcon={<LocationOnIcon />}
+                            >
+                                Endereço
+                            </Button>
+                        </a>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <Button
+                            variant="contained"
+                            fullWidth
+                            sx={{ backgroundColor: '#333', color: '#fff' }}
+                            startIcon={<FastfoodIcon />}
+                        >
+                            Peça agora
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Container>
+
+            <Footer>
+                <Typography variant="body1">© 2024 wr-café-bar</Typography>
+                <SocialIcon href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="fa fa-facebook" aria-label="Facebook" />
+                <SocialIcon href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="fa fa-instagram" aria-label="Instagram" />
+                <SocialIcon href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="fa fa-twitter" aria-label="Twitter" />
+                <Typography variant="body2" marginTop={2}>Contato: (00) 1234-5678 | email@barzinho.com</Typography>
+            </Footer>
+        </Box>
+    );
+}
