@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Tabs, Tab, Toolbar, Typography, Box } from '@mui/material';
+import { AppBar, Tabs, Tab, Box } from '@mui/material';
 
 // const menuItems = [
 //     'PORÇÕES', 'REFRI LATA', 'CIGARRO', 'VINHOS', 'SOBREMESAS', 'GELO',
@@ -11,11 +11,22 @@ const menuItems = [
     'PORÇÕES', 'REFRI LATA', 'CIGARRO', 'VINHOS', 'SOBREMESAS', 'GELO', 'COMBOS', 'ACOMPANHAMENTOS',
 ];
 
-const MenuBar = () => {
+const categories = {
+    'PORÇÕES': 'portions',
+    'REFRI LATA': 'drinks',
+    'CIGARRO': 'cigar',
+    'VINHOS': 'vine',
+    'SOBREMESAS': 'dessert',
+    'GELO': 'ice',
+    'ACOMPANHAMENTOS': 'additional'
+};
+
+const MenuBar = ({ onCategoryChange }) => {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
-        setValue(newValue);
+        setValue(newValue)
+        onCategoryChange(categories[menuItems[newValue]])
     };
 
     return (

@@ -1,6 +1,7 @@
 import { Box, Container, CssBaseline, Grid } from '@mui/material'
 import ProductCard from '../../productCard'
 import MenuBar from '../../menuBar'
+import { useState } from 'react'
 
 const Home = () => {
 
@@ -158,13 +159,21 @@ const Home = () => {
         },
     ]
 
+    const [selectedCategory, setSelectedCategory] = useState('portions');
+
+    const handleCategoryChange = (category) => {
+        setSelectedCategory(category);
+    };
+
+    const filteredProducts = products.filter(product => product.category === selectedCategory);
+
     return (
         <>
-            <MenuBar />
+            <MenuBar onCategoryChange={handleCategoryChange} />
             <CssBaseline />
             <Container maxWidth="lg">
                 <Grid container spacing={2}>
-                    {products.map((product, index) => (
+                    {filteredProducts.map((product, index) => (
                         <Grid item key={index} xs={12} sm={6} md={4}>
                             <ProductCard
                                 images={product.images}
