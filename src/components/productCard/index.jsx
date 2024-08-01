@@ -92,15 +92,15 @@ const ProductCard = ({ images, category, title, description, price }) => {
                     </Stack>
                 </CardContent>
                 <CardActions>
-                    <Box display="flex" width="100%">
+                    {/* <Box display="flex" width="100%">
                         <Button variant="contained" fullWidth sx={{ backgroundColor: "#da5c5d", borderRadius: '5px', margin: '10px' }}>
                             Adicionar no carrinho
                         </Button>
-                    </Box>
+                    </Box> */}
                 </CardActions>
             </Card>
 
-            <Dialog anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+            {/* <Dialog anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
                 <Box sx={{ width: 350, padding: 20 }}>
                     <IconButton
                         onClick={toggleDrawer(false)}
@@ -167,7 +167,7 @@ const ProductCard = ({ images, category, title, description, price }) => {
                         </CardActions>
                     </Card>
                 </Box>
-            </Dialog>
+            </Dialog> */}
         </>
     );
 };

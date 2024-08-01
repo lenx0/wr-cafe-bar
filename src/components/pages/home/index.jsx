@@ -177,13 +177,18 @@ const Home = () => {
     });
 
     return (
+        //xs sm md lg xl
         <>
             <Header searchValue={searchValue} onSearchChange={handleSearchChange} />
-            <MenuBar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
+            <Grid container justifyContent="center">
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                    <MenuBar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
+                </Grid>
+            </Grid>
             <CssBaseline />
             <Grid container spacing={2} justifyContent="center" padding={2}>
                 {filteredProducts.map((product, index) => (
-                    <Grid item key={index} xs={12} sm={6} md={2}>
+                    <Grid item key={index} xs={12} sm={6} md={3} lg={3} xl={2}>
                         <ProductCard
                             images={product.images}
                             category={product.category}
