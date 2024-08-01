@@ -19,7 +19,7 @@ const Home = () => {
         {
             images: [`${imgBaseUrl}picanha-com-arroz.jpeg`],
             category: "portions",
-            title: "Picanha à moda do chef-500G",
+            title: "Picanha 500G",
             description: `Picanha preparada com tecnicas da casa.`,
             garnish: `Arroz a grega`,
             price: "R$120,00"
@@ -27,7 +27,7 @@ const Home = () => {
         {
             images: [`${imgBaseUrl}calabresa-acebolada.jpeg`, `${imgBaseUrl}calabresa-acebolada2.jpeg`],
             category: "portions",
-            title: "Calabresa acebolada 400G",
+            title: "Calabresa acebo. 400G",
             description: "Porção deliciosa de calabresa com cebolas preparadas na medida certa",
             price: "R$23,90"
         },
@@ -41,7 +41,7 @@ const Home = () => {
         {
             images: [`${imgBaseUrl}porcao-batata.jpeg`, `${imgBaseUrl}porcao-batata2.jpeg`],
             category: "portions",
-            title: "Porção de batata frita 500G",
+            title: "Porção de fritas 500G",
             description: "Porção de batata frita, serve 2 a 3 pessoas",
             price: "R$30,90"
         },
@@ -177,28 +177,24 @@ const Home = () => {
     });
 
     return (
-        <Box>
+        <>
             <Header searchValue={searchValue} onSearchChange={handleSearchChange} />
             <MenuBar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
             <CssBaseline />
-            <Container>
-                <Grid container spacing={2}>
-                    {filteredProducts.map((product, index) => (
-                        <Grid item key={index} xs={12} sm={6} md={4}>
-                            <ProductCard
-                                images={product.images}
-                                category={product.category}
-                                title={product.title}
-                                description={product.description}
-                                price={product.price}
-                            />
-                        </Grid>
-                    ))}
-                </Grid>
-            </Container>
-        </Box>
-
-
+            <Grid container spacing={2} justifyContent="center" padding={2}>
+                {filteredProducts.map((product, index) => (
+                    <Grid item key={index} xs={12} sm={6} md={2}>
+                        <ProductCard
+                            images={product.images}
+                            category={product.category}
+                            title={product.title}
+                            description={product.description}
+                            price={product.price}
+                        />
+                    </Grid>
+                ))}
+            </Grid>
+        </>
     )
 }
 

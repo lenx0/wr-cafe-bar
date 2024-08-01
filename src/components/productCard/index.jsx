@@ -25,6 +25,9 @@ const ProductCard = ({ images, category, title, description, price }) => {
                         lineHeight: '25px',
                         letterSpacing: '-0.015rem',
                         textAlign: 'center',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
                     }}>
                         {title}
                     </Typography>
