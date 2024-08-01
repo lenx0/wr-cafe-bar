@@ -50,7 +50,7 @@ const ProductCard = ({ images, category, title, description, price }) => {
                                 height="200"
                                 image={images[0]}
                                 alt={title}
-                                sx={{ objectFit: category === 'drinks' || 'cigar' ? 'contain' : 'cover', borderRadius: '10px', marginTop: '15px', marginBottom: '15px', width: '100%' }}
+                                sx={{ objectFit: category === 'drinks' || category === 'cigar' || category === 'vine' ? 'contain' : 'cover', borderRadius: '10px', marginTop: '15px', marginBottom: '15px', width: '100%' }}
                             />
                             <Box height={10} />
                         </>

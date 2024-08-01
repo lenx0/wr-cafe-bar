@@ -1,11 +1,14 @@
 import React from 'react';
 import { AppBar, Tabs, Tab, Toolbar, Typography, Box } from '@mui/material';
 
+// const menuItems = [
+//     'PORÇÕES', 'REFRI LATA', 'CIGARRO', 'VINHOS', 'SOBREMESAS', 'GELO',
+//     'ASSADOS', 'ADICIONAIS', 'AMENDOIN', 'DOCES', 'GARRAFAS DESTILADOS',
+//     'COMBOS', 'BEBIDAS EM GERAL', 'ACOMPANHAMENTOS', 'LANCHES', 'BALAS',
+//     'DRINKS', 'CERVEJAS', 'OUTRAS'
+// ];
 const menuItems = [
-    'PORÇÕES', 'REFRI LATA', 'CIGARRO', 'VINHOS', 'SOBREMESAS', 'GELO',
-    'ASSADOS', 'ADICIONAIS', 'AMENDOIN', 'DOCES', 'GARRAFAS DESTILADOS',
-    'COMBOS', 'BEBIDAS EM GERAL', 'ACOMPANHAMENTOS', 'LANCHES', 'BALAS',
-    'DRINKS', 'CERVEJAS', 'OUTRAS'
+    'PORÇÕES', 'REFRI LATA', 'CIGARRO', 'VINHOS', 'SOBREMESAS', 'GELO', 'COMBOS', 'ACOMPANHAMENTOS',
 ];
 
 const MenuBar = () => {
@@ -27,10 +30,14 @@ const MenuBar = () => {
                     textColor="inherit"
                     indicatorColor="primary"
                     sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignContent: 'center',
                         '& .MuiTabs-indicator': {
                             backgroundColor: '#ffffff',
                         },
                         '& .MuiTab-root': {
+                            width: '100%',
                             color: '#000000',
                             textTransform: 'none',
                             fontSize: '1rem',
