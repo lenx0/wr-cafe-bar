@@ -8,7 +8,7 @@ import { AppBar, Tabs, Tab, Box } from '@mui/material';
 //     'DRINKS', 'CERVEJAS', 'OUTRAS'
 // ];
 const menuItems = [
-    'PORÇÕES', 'REFRI LATA', 'CIGARRO', 'VINHOS', 'SOBREMESAS', 'GELO', 'COMBOS', 'ACOMPANHAMENTOS',
+    'PORÇÕES', 'REFRI LATA', 'CIGARRO', 'VINHOS', 'SOBREMESAS', 'GELO', 'ACOMPANHAMENTOS',
 ];
 
 const categories = {

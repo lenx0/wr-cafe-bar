@@ -16,7 +16,7 @@ const ProductCard = ({ images, category, title, description, price }) => {
 
     return (
         <>
-            <Card sx={{ maxWidth: 345, margin: '10px', borderRadius: '10px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.25)' }}>
+            <Card sx={{ maxWidth: 345, borderRadius: '10px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.25)' }}>
                 <Box sx={{ height: 'auto', overflow: 'hidden', alignItems: 'center', padding: '20px 20px 0 20px' }}>
                     <Typography gutterBottom component="div" sx={{
                         color: '#da5c5d',

@@ -2,6 +2,7 @@ import { Box, Container, CssBaseline, Grid } from '@mui/material'
 import ProductCard from '../../productCard'
 import MenuBar from '../../menuBar'
 import { useState } from 'react'
+import Header from '../../header'
 
 const Home = () => {
 
@@ -158,20 +159,29 @@ const Home = () => {
             price: "R$10,00"
         },
     ]
-
+    const [searchValue, setSearchValue] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('portions');
+
+    const handleSearchChange = (event) => {
+        setSearchValue(event.target.value);
+    };
 
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
     };
 
-    const filteredProducts = products.filter(product => product.category === selectedCategory);
+    const filteredProducts = products.filter((product) => {
+        const matchesSearch = product.title.toLowerCase().includes(searchValue.toLowerCase());
+        const matchesCategory = selectedCategory ? product.category === selectedCategory : true;
+        return matchesSearch && matchesCategory;
+    });
 
     return (
-        <>
-            <MenuBar onCategoryChange={handleCategoryChange} />
+        <Box>
+            <Header searchValue={searchValue} onSearchChange={handleSearchChange} />
+            <MenuBar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
             <CssBaseline />
-            <Container maxWidth="lg">
+            <Container>
                 <Grid container spacing={2}>
                     {filteredProducts.map((product, index) => (
                         <Grid item key={index} xs={12} sm={6} md={4}>
@@ -186,7 +196,8 @@ const Home = () => {
                     ))}
                 </Grid>
             </Container>
-        </>
+        </Box>
+
 
     )
 }

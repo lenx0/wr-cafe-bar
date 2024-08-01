@@ -19,22 +19,22 @@ const SearchBar = ({ value, onChange, placeholder }) => {
       }}
       sx={{
         '& .MuiOutlinedInput-root': {
-          color: 'white',  // Cor do texto
+          color: 'white',
           '& fieldset': {
-            borderColor: 'white',  // Cor da borda padrão
+            borderColor: 'white',
           },
           '&:hover fieldset': {
-            borderColor: 'white',  // Cor da borda ao passar o mouse
+            borderColor: 'white',
           },
           '&.Mui-focused fieldset': {
-            borderColor: 'white',  // Cor da borda ao focar
+            borderColor: 'white',
           },
         },
         '& .MuiInputAdornment-root': {
-          color: 'white',  // Cor do ícone
+          color: 'white',
         },
         '& .MuiInputBase-input': {
-          color: 'white',  // Cor do texto dentro da barra de pesquisa
+          color: 'white',
         },
       }}
     />
