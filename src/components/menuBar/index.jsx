@@ -3,9 +3,9 @@ import { AppBar, Tabs, Tab, Toolbar, Typography, Box } from '@mui/material';
 
 const menuItems = [
     'PORÇÕES', 'REFRI LATA', 'CIGARRO', 'VINHOS', 'SOBREMESAS', 'GELO',
-    'ASSADOS', 'ADICIONAIS', 'AMENDOIN', 'DOSES', 'GARRAFAS DESTILADOS',
+    'ASSADOS', 'ADICIONAIS', 'AMENDOIN', 'DOCES', 'GARRAFAS DESTILADOS',
     'COMBOS', 'BEBIDAS EM GERAL', 'ACOMPANHAMENTOS', 'LANCHES', 'BALAS',
-    'DRINKS', 'SOBPRODUTO', 'CERVEJAS', 'OUTRAS'
+    'DRINKS', 'CERVEJAS', 'OUTRAS'
 ];
 
 const MenuBar = () => {

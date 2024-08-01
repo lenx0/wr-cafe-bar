@@ -3,7 +3,7 @@ import { Card, CardContent, CardMedia, Typography, CardActions, Button, Box, Dia
 import CloseIcon from '@mui/icons-material/Close';
 import Carousel from 'react-material-ui-carousel';
 
-const ProductCard = ({ images, title, description, price }) => {
+const ProductCard = ({ images, category, title, description, price }) => {
     const [showMore, setShowMore] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -50,7 +50,7 @@ const ProductCard = ({ images, title, description, price }) => {
                                 height="200"
                                 image={images[0]}
                                 alt={title}
-                                sx={{ objectFit: 'cover', borderRadius: '10px', marginTop: '15px', marginBottom: '15px', width: '100%' }}
+                                sx={{ objectFit: category === 'drinks' || 'cigar' ? 'contain' : 'cover', borderRadius: '10px', marginTop: '15px', marginBottom: '15px', width: '100%' }}
                             />
                             <Box height={10} />
                         </>
@@ -84,7 +84,7 @@ const ProductCard = ({ images, title, description, price }) => {
                                     </Typography>
                                 )}
                             </Typography>
-                            
+
                         </Stack>
                     </Stack>
                 </CardContent>
