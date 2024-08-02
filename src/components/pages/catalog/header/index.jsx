@@ -1,6 +1,6 @@
 import { Box, Input } from "@mui/material";
 import SearchBar from "../searchBar";
-import Cart from "../cart";
+import Cart from "../../../cart";
 
 const Header = ({ searchValue, onSearchChange }) => {
     return (

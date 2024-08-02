@@ -2,7 +2,7 @@ import { Box, Container, CssBaseline, Grid } from '@mui/material'
 import ProductCard from '../../productCard'
 import MenuBar from '../../menuBar'
 import { useState } from 'react'
-import Header from '../../header'
+import Header from './header'
 
 const Catalog = () => {
 
