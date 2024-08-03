@@ -53,7 +53,7 @@ const MenuBar = ({ onCategoryChange }) => {
                             textTransform: 'none',
                             fontSize: '1rem',
                             '&.Mui-selected': {
-                                backgroundColor: '#da5c5d',
+                                backgroundColor: '#685340',
                                 color: '#ffffff',
                             },
                         },

@@ -21,7 +21,7 @@ export default function Header() {
     });
 
     return (
-        <Box height={230} display="flex" alignItems="center" width="100%" backgroundColor="#0f0f0f" paddingBottom={6} top={0} right={0}>
+        <Box height={200} display="flex" alignItems="center" width="100%" backgroundColor="#0B0B0B" paddingBottom={6} top={0} right={0}>
             <Container>
                 <Grid container width="100%" spacing={2} justifyContent="center" marginTop={4}>
                     <Grid item xs={12} sm={6} md={2.4}>
@@ -30,7 +30,7 @@ export default function Header() {
                                 variant="contained"
                                 fullWidth
                                 sx={{
-                                    backgroundColor: '#333', color: '#fff', '&:hover': {
+                                    backgroundColor: '#665342', color: '#fff', '&:hover': {
                                         backgroundColor: '#da5c5d',
                                     },
                                 }}
@@ -46,7 +46,7 @@ export default function Header() {
                                 variant="contained"
                                 fullWidth
                                 sx={{
-                                    backgroundColor: '#333', color: '#fff', '&:hover': {
+                                    backgroundColor: '#665342', color: '#fff', '&:hover': {
                                         backgroundColor: '#da5c5d',
                                     },
                                 }}
@@ -57,10 +57,7 @@ export default function Header() {
                         </Link>
                     </Grid>
                     <Grid item xs={12} sm={6} md={2.4}>
-
-                        <a href="https://www.google.com/maps/place/WR+Caf%C3%A9+Bar/@-23.4117287,-51.9552946,15z/data=!4m2!3m1!1s0x0:0x15b6c4880cf18cbd?sa=X&ved=1t:2428&ictx=111">
-                            <Logo src="/logos/logo-clean.png" />
-                        </a>
+                        <Logo src="/logos/logo-clean.png" />
                     </Grid>
                     <Grid item xs={12} sm={6} md={2.4}>
                         <a href="https://www.google.com/maps/place/WR+Caf%C3%A9+Bar/@-23.4117287,-51.9552946,15z/data=!4m2!3m1!1s0x0:0x15b6c4880cf18cbd?sa=X&ved=1t:2428&ictx=111">
@@ -68,7 +65,7 @@ export default function Header() {
                                 variant="contained"
                                 fullWidth
                                 sx={{
-                                    backgroundColor: '#333', color: '#fff', '&:hover': {
+                                    backgroundColor: '#665342', color: '#fff', '&:hover': {
                                         backgroundColor: '#da5c5d',
                                     },
                                 }}
@@ -83,7 +80,7 @@ export default function Header() {
                             variant="contained"
                             fullWidth
                             sx={{
-                                backgroundColor: '#333', color: '#fff', '&:hover': {
+                                backgroundColor: '#665342', color: '#fff', '&:hover': {
                                     backgroundColor: '#da5c5d',
                                 },
                             }}

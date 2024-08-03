@@ -178,7 +178,7 @@ const Catalog = () => {
 
     return (
         //xs sm md lg xl
-        <>
+        <Box backgroundColor="#e7e7e7">
             <Header searchValue={searchValue} onSearchChange={handleSearchChange} />
             <Grid container justifyContent="center">
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -199,7 +199,8 @@ const Catalog = () => {
                     </Grid>
                 ))}
             </Grid>
-        </>
+        </Box>
+
     )
 }
 
