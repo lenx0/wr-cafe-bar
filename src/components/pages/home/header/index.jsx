@@ -9,88 +9,58 @@ import FastfoodIcon from '@mui/icons-material/Fastfood';
 
 export default function Header() {
 
-    const Logo = styled('img')({
-        position: 'absolute',
-        top: '0',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '200px',
-        height: '180px', // Defina a altura que deseja
-        maxHeight: '500px', // Ajuste conforme necessário
-        backgroundColor: "transparent"
-    });
+    // const Logo = styled('img')({
+    //     position: 'absolute',
+    //     top: '0',
+    //     left: '50%',
+    //     transform: 'translateX(-50%)',
+    //     width: '200px',
+    //     height: '180px', // Defina a altura que deseja
+    //     maxHeight: '500px', // Ajuste conforme necessário
+    //     backgroundColor: "transparent"
+    // });
+
+    const Typo = styled('Typography')({
+        color: '#ffffff',
+        fontWeight: 'bold',
+        fontSize: '16px',
+        lineHeight: '36px',
+        marginTop: 50,
+        letterSpacing: '-0.02em',
+        textTransform: 'uppercase',
+        textDecoration: 'none',
+        '&:hover': {
+            color: '#e95353ce'
+        }
+    })
 
     return (
-        <Box height={200} display="flex" alignItems="center" width="100%" backgroundColor="#0B0B0B" paddingBottom={6} top={0} right={0}>
-            <Container>
-                <Grid container width="100%" spacing={2} justifyContent="center" marginTop={4}>
-                    <Grid item xs={12} sm={6} md={2.4}>
-                        <a href="https://api.whatsapp.com/send/?phone=554498019717&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0">
-                            <Button
-                                variant="contained"
-                                fullWidth
-                                sx={{
-                                    backgroundColor: '#665342', color: '#fff', '&:hover': {
-                                        backgroundColor: '#da5c5d',
-                                    },
-                                }}
-                                startIcon={<WhatsAppIcon />}
-                            >
-                                Whatsapp
-                            </Button>
-                        </a>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={2.4}>
-                        <Link to="/catalog">
-                            <Button
-                                variant="contained"
-                                fullWidth
-                                sx={{
-                                    backgroundColor: '#665342', color: '#fff', '&:hover': {
-                                        backgroundColor: '#da5c5d',
-                                    },
-                                }}
-                                startIcon={<MenuBookIcon />}
-                            >
-                                Cardápio
-                            </Button>
-                        </Link>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={2.4}>
-                        <Logo src="/logos/logo-clean.png" />
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={2.4}>
-                        <a href="https://www.google.com/maps/place/WR+Caf%C3%A9+Bar/@-23.4117287,-51.9552946,15z/data=!4m2!3m1!1s0x0:0x15b6c4880cf18cbd?sa=X&ved=1t:2428&ictx=111">
-                            <Button
-                                variant="contained"
-                                fullWidth
-                                sx={{
-                                    backgroundColor: '#665342', color: '#fff', '&:hover': {
-                                        backgroundColor: '#da5c5d',
-                                    },
-                                }}
-                                startIcon={<LocationOnIcon />}
-                            >
-                                Endereço
-                            </Button>
-                        </a>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={2.4}>
-                        <Button
-                            variant="contained"
-                            fullWidth
-                            sx={{
-                                backgroundColor: '#665342', color: '#fff', '&:hover': {
-                                    backgroundColor: '#da5c5d',
-                                },
-                            }}
-                            startIcon={<FastfoodIcon />}
-                        >
-                            Peça agora
-                        </Button>
-                    </Grid>
-                </Grid>
-            </Container>
+        <Box height={140} backgroundColor="#181818dd">
+            <Box display="flex" justifyContent="center" gap={10} alignItems="center">
+                <Link to="/catalog" style={{ textDecoration: 'none', marginTop: 50 }}>
+                    <Typo>Cardápio</Typo>
+                </Link>
+
+                <Link
+                    to="https://api.whatsapp.com/send/?phone=554498019717&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0"
+                    style={{ textDecoration: 'none', marginTop: 50 }}
+                >
+                    <Typo>Whatsapp</Typo>
+                </Link>
+
+                <Box sx={{ width: 237, height: 119 }}>
+                    <img src="/logos/logo.png" width={237} height={119} />
+                </Box>
+
+                <Link
+                    to="https://www.google.com/maps/place/WR+Caf%C3%A9+Bar/@-23.4042313,-51.9719152,15z/data=!4m6!3m5!1s0x94ecd7c22dd0f785:0x15b6c4880cf18cbd!8m2!3d-23.4115606!4d-51.9553186!16s%2Fg%2F11vl9f_qxs?entry=tts"
+                    style={{ textDecoration: 'none', marginTop: 50 }}
+                >
+                    <Typo>Localização</Typo>
+                </Link>
+
+                <Typo>Peça já</Typo>
+            </Box>
         </Box>
     )
 }
