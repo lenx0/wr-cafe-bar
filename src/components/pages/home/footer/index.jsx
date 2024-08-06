@@ -16,7 +16,7 @@ export default function Footer() {
 
     return (
         <Stack sx={{
-            position: 'fixed',
+            position: 'relative', //fixed até 900px abaixo adicionar relative
             bottom: 0,
             left: 0,
             width: '100%',
@@ -24,7 +24,7 @@ export default function Footer() {
             color: '#fff',
             padding: '20px',
             textAlign: 'center',
-            marginTop: '40px',
+            // marginTop: '40px',
             borderTop: '1px solid #444',
         }}>
             <Stack>
