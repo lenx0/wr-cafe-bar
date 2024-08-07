@@ -20,42 +20,41 @@ export default function Header() {
     //     backgroundColor: "transparent"
     // });
 
-    const Typo = styled('Typography')({
-        color: '#ffffff',
-        fontWeight: 'bold',
-        fontSize: '16px',
-        lineHeight: '36px',
-        marginTop: 50,
-        letterSpacing: '-0.02em',
-        textTransform: 'uppercase',
-        textDecoration: 'none',
-        '&:hover': {
-            color: '#e95353ce'
-        }
-    })
+    // const Typo = styled('Typography')({
+    //     color: '#ffffff',
+    //     fontSize: '16px',
+    //     lineHeight: '36px',
+    //     marginTop: 50,
+    //     letterSpacing: '-0.02em',
+
+    //     textDecoration: 'none',
+    //     '&:hover': {
+    //         color: '#e95353ce'
+    //     }
+    // })
 
     return (
-        <Box height={140} backgroundColor="#181818dd">
+        <Box height={140} backgroundColor="#373737" color="#ffffff">
             <Box display="flex" justifyContent="center" gap={10} alignItems="center">
-                <Link to="/catalog" style={{ textDecoration: 'none', marginTop: 50 }}>
-                    <Typo>Cardápio</Typo>
-                </Link>
-                <Link
-                    to="https://api.whatsapp.com/send/?phone=554498019717&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0"
-                    style={{ textDecoration: 'none', marginTop: 50 }}
+                <a href="/catalog" style={{ textDecoration: 'none', color: "#fff", marginTop: 50 }}>
+                    <Typography>Cardápio</Typography>
+                </a>
+                <a
+                    href="https://api.whatsapp.com/send/?phone=554498019717&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0"
+                    style={{ textDecoration: 'none', color: "#fff", marginTop: 50 }}
                 >
-                    <Typo>Whatsapp</Typo>
-                </Link>
+                    <Typography>Whatsapp</Typography>
+                </a>
                 <Box sx={{ width: 237, height: 119 }}>
                     <img src="/logos/logo.png" width={237} height={119} />
                 </Box>
-                <Link
-                    to="https://www.google.com/maps/place/WR+Caf%C3%A9+Bar/@-23.4042313,-51.9719152,15z/data=!4m6!3m5!1s0x94ecd7c22dd0f785:0x15b6c4880cf18cbd!8m2!3d-23.4115606!4d-51.9553186!16s%2Fg%2F11vl9f_qxs?entry=tts"
-                    style={{ textDecoration: 'none', marginTop: 50 }}
+                <a
+                    href="https://www.google.com/maps/place/WR+Caf%C3%A9+Bar/@-23.4042313,-51.9719152,15z/data=!4m6!3m5!1s0x94ecd7c22dd0f785:0x15b6c4880cf18cbd!8m2!3d-23.4115606!4d-51.9553186!16s%2Fg%2F11vl9f_qxs?entry=tts"
+                    style={{ textDecoration: 'none', color: "#fff", marginTop: 50 }}
                 >
-                    <Typo>Localização</Typo>
-                </Link>
-                <Typo>Peça já</Typo>
+                    <Typography>Localização</Typography>
+                </a>
+                <Typography marginTop="50px">Contato</Typography>
             </Box>
         </Box>
     )

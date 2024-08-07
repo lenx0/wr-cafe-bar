@@ -1,8 +1,8 @@
-import { Box, Container, CssBaseline, Grid } from '@mui/material'
+import { Box, CssBaseline, Grid, Typography } from '@mui/material'
 import ProductCard from '../../productCard'
 import MenuBar from '../../menuBar'
 import { useState } from 'react'
-import Header from './header'
+import SearchBar from './searchBar'
 
 const Catalog = () => {
 
@@ -178,17 +178,18 @@ const Catalog = () => {
 
     return (
         //xs sm md lg xl
-        <Box backgroundColor="#e7e7e7">
-            <Header searchValue={searchValue} onSearchChange={handleSearchChange} />
+        <Box backgroundColor="#f5f5f5" padding="0 200px 0 200px">
+            <Typography fontSize={50} letterSpacing={4} color="#da5c5d">Cardápio</Typography>
+            <SearchBar value={searchValue} onChange={handleSearchChange} placeholder="Busque um item" />
             <Grid container justifyContent="center">
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                     <MenuBar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
                 </Grid>
             </Grid>
             <CssBaseline />
-            <Grid container spacing={2} justifyContent="center" padding={2}>
+            <Grid container spacing={2} justifyContent="start" padding={2}>
                 {filteredProducts.map((product, index) => (
-                    <Grid item key={index} xs={12} sm={6} md={3} lg={3} xl={2}>
+                    <Grid item key={index} xs={12} sm={6} md={3} lg={3} xl={3}>
                         <ProductCard
                             images={product.images}
                             category={product.category}

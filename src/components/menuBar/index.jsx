@@ -30,7 +30,7 @@ const MenuBar = ({ onCategoryChange }) => {
     };
 
     return (
-        <Box margin='20px 0 20px 0'>
+        <Box margin='20px' backgroundColor="#373737">
             <AppBar position="static" color="default">
                 <Tabs
                     value={value}
@@ -60,7 +60,7 @@ const MenuBar = ({ onCategoryChange }) => {
                     }}
                 >
                     {menuItems.map((item, index) => (
-                        <Tab key={index} label={item} />
+                        <Tab key={index} label={item} style={{ display: "flex", width: 150 }} />
                     ))}
                 </Tabs>
             </AppBar>

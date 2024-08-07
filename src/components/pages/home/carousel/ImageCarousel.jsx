@@ -8,8 +8,8 @@ const ImageCarousel = ({ images }) => {
 
     return (
         // <Grid container spacing={2} sx={{ height: '100vh' }}>
-        <Grid container sx={{ height: 'auto', minHeight: '600px' }}>
-            <Grid item xs={12} md={6} sx={{ height: '600px', p: 2 }}>
+        <Grid container sx={{ padding: "80px 50px 0 50px", height: 'auto', minHeight: '600px', paddingBottom: "200px" }}>
+            <Grid item xs={12} md={6} sx={{ height: '620px', p: 2 }}>
                 <Card sx={{ height: '100%' }}>
                     <CardMedia
                         component="img"
@@ -26,7 +26,7 @@ const ImageCarousel = ({ images }) => {
                 {/* <Grid container spacing={2} sx={{ height: '50%' }}>
                     <Grid item xs={12} sx={{ height: '100%' }}> */}
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sx={{ height: '290px' }}>
+                    <Grid item xs={12} sx={{ height: '302px' }}>
                         <Card sx={{ height: '100%' }}>
                             <CardMedia
                                 component="img"
@@ -37,7 +37,7 @@ const ImageCarousel = ({ images }) => {
                             />
                         </Card>
                     </Grid>
-                    <Grid item xs={12} sx={{ height: '295px' }}>
+                    <Grid item xs={12} sx={{ height: '302px' }}>
                         <Card sx={{ height: '100%' }}>
                             <CardMedia
                                 component="img"
