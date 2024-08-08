@@ -1,4 +1,5 @@
 import './App.css'
+import 'leaflet/dist/leaflet.css';
 import Catalog from './components/pages/catalog';
 import Home from './components/pages/home'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';

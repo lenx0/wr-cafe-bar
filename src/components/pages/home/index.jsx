@@ -1,27 +1,54 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Box } from '@mui/material';
-import { styled } from '@mui/system';
 import Footer from './footer';
 import Header from './header';
+import Catalog from '../catalog'
+import MapboxMap from '../../mapbox';
+import Hero from './hero';
 
-const Banner = styled('img')({
-    width: '100%',
-    height: '600px',
-    objectFit: 'cover //contain para fazer um carousel'
-});
 
 
 export default function Home() {
+
+    const heroRef = useRef(null);
+    const catalogRef = useRef(null);
+    const mapboxRef = useRef(null);
+
+    const scrollToSection = (section) => {
+        switch (section) {
+            case "hero":
+                heroRef.current.scrollIntoView({ behavior: "smooth" });
+                break;
+            case "catalog":
+                catalogRef.current.scrollIntoView({ behavior: "smooth" });
+                break;
+            case "map":
+                mapboxRef.current.scrollIntoView({ behavior: "smooth" });
+                break;
+            default:
+                break;
+        }
+    };
+
     return (
         <>
-            <Box>
-                <Header />
-                {/* <Banner src="/images/banner-home.jpeg" alt="Banner do Barzinho" /> */}
-                {/* <Banner src="/images/banner-drink.jpeg" alt="Banner do Barzinho" /> */}
-                <Banner src="/images/banner-home5.jpg" alt="Banner do Barzinho" />
-                {/* <Banner src="/logos/logo.png" alt="Banner do Barzinho" /> */}
-                <Footer />
+            <Box backgroundColor="#ffffff">
+            <Header scrollToSection={scrollToSection} />
+
+            <Box ref={heroRef}>
+                <Hero />
             </Box>
+            
+            <Box ref={catalogRef}>
+                <Catalog />
+            </Box>
+            
+            <Box ref={mapboxRef}>
+                <MapboxMap />
+            </Box>
+            
+            <Footer />
+        </Box>
         </>
     );
 }
