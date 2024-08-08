@@ -60,7 +60,7 @@ const MenuBar = ({ onCategoryChange }) => {
                     }}
                 >
                     {menuItems.map((item, index) => (
-                        <Tab key={index} label={item} style={{ display: "flex", width: 150 }} />
+                        <Tab key={index} label={item} style={{ display: "flex" }} />
                     ))}
                 </Tabs>
             </AppBar>
