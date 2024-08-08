@@ -178,7 +178,7 @@ const Catalog = () => {
 
     return (
         //xs sm md lg xl
-        <Box backgroundColor="#ffffff" padding="0 200px 0 200px">
+        <Box backgroundColor="#ffffff" padding="200px 200px 0 200px">
             <Typography fontSize={50} fontWeight="bold" color="#1b1b1bdf">Cardápio</Typography>
             <SearchBar value={searchValue} onChange={handleSearchChange} placeholder="Busque um item" />
             <Grid container justifyContent="center">

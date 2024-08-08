@@ -49,6 +49,9 @@ export default function Header({ scrollToSection }) {
                 </a>
 
                 <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }}>
+                    <Typography fontSize={18} sx={hoverEffect}>Galeria</Typography>
+                </a>
+                <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }}>
                     <Typography fontSize={18} sx={hoverEffect}>Peça já</Typography>
                 </a>
             </Box>

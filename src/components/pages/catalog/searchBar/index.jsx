@@ -4,12 +4,12 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = ({ value, onChange, placeholder }) => {
   return (
-    <Box>
+    <Box mt={5}>
       <TextField
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        variant="outlined"
+        variant="standard"
         fullWidth
         InputProps={{
           startAdornment: (
