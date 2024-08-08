@@ -17,7 +17,7 @@ export default function OrderLocation() {
     });
 
     return (
-        <Box padding="0 200px 0 200px">
+        <Box padding="0 200px 0 200px" backgroundColor="#dadadac3">
             <Box padding={5}>
                 <MapContainer
                     center={address.position}
