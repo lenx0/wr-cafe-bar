@@ -1,10 +1,13 @@
-import { Box, CssBaseline, Grid, Typography } from '@mui/material'
+import { Box, CssBaseline, Grid, Typography, useMediaQuery, useTheme } from '@mui/material'
 import ProductCard from '../../productCard'
 import MenuBar from '../../menuBar'
 import { useState } from 'react'
 import SearchBar from './searchBar'
+import HorizontalProductList from '../../catalog/horizontalProductList'
 
 const Catalog = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const imgBaseUrl = "/products/"
 
@@ -177,30 +180,35 @@ const Catalog = () => {
     });
 
     return (
-        //xs sm md lg xl
-        <Box backgroundColor="#ffffff" padding="200px 200px 0 200px">
-            <Typography fontSize={50} fontWeight="bold" color="#1b1b1bdf">Cardápio</Typography>
-            <SearchBar value={searchValue} onChange={handleSearchChange} placeholder="Busque um item" />
-            <Grid container justifyContent="center">
-                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                    <MenuBar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
-                </Grid>
-            </Grid>
-            <CssBaseline />
-            <Grid container spacing={2} justifyContent="start" padding={2}>
-                {filteredProducts.map((product, index) => (
-                    <Grid item key={index} xs={12} sm={6} md={3} lg={3} xl={3}>
-                        <ProductCard
-                            images={product.images}
-                            category={product.category}
-                            title={product.title}
-                            description={product.description}
-                            price={product.price}
-                        />
+        <>
+            {isMobile ? (
+                <HorizontalProductList products={products} />
+            ) : (
+                <Box backgroundColor="#ffffff" padding={{ xs: "20px", md: "200px 200px 0 200px" }}>
+                    <Typography fontSize={{ xs: 30, md: 50 }} fontWeight="bold" color="#1b1b1bdf">Cardápio</Typography>
+                    <SearchBar value={searchValue} onChange={handleSearchChange} placeholder="Busque um item" />
+                    <Grid container justifyContent="center">
+                        <Grid item xs={12}>
+                            <MenuBar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
+                        </Grid>
                     </Grid>
-                ))}
-            </Grid>
-        </Box>
+                    <CssBaseline />
+                    <Grid container spacing={2} justifyContent="start" padding={2}>
+                        {filteredProducts.map((product, index) => (
+                            <Grid item key={index} xs={12} sm={6} md={4} lg={3} xl={3}>
+                                <ProductCard
+                                    images={product.images}
+                                    category={product.category}
+                                    title={product.title}
+                                    description={product.description}
+                                    price={product.price}
+                                />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box>
+            )}
+        </>
 
     )
 }

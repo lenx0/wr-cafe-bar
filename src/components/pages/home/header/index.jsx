@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
 
-
 export default function Header({ scrollToSection }) {
 
     const hoverEffect = {
@@ -33,26 +32,36 @@ export default function Header({ scrollToSection }) {
 
     return (
         <Box backgroundColor="#ffffff">
-            <Box display="flex" mt={2} ml={5} gap={10} alignItems="center" color="#1b1b1bdf">
-                <img src="/logos/logo.png" width={200} height={100} />
+            <Box 
+                display="flex" 
+                flexDirection={{ xs: 'column', md: 'row' }} 
+                mt={2} 
+                ml={{ xs: 2, md: 5 }} 
+                gap={{ xs: 2, md: 10 }} 
+                alignItems="center" 
+                color="#1b1b1bdf"
+                justifyContent={{ xs: 'center', md: 'flex-start' }}
+                textAlign={{ xs: 'center', md: 'left' }}
+            >
+                <img src="/logos/logo.png" width={150} height={75} alt="Logo" />
 
                 <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }} onClick={() => scrollToSection("catalog")}>
-                    <Typography fontSize={18} sx={hoverEffect}>Cardápio</Typography>
+                    <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Cardápio</Typography>
                 </a>
 
                 <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }} href="https://api.whatsapp.com/send/?phone=554498019717&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
-                    <Typography fontSize={18} sx={hoverEffect}>Whatsapp</Typography>
+                    <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Whatsapp</Typography>
                 </a>
 
                 <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }} onClick={() => scrollToSection("map")}>
-                    <Typography fontSize={18} sx={hoverEffect}>Localizaçao</Typography>
+                    <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Localização</Typography>
                 </a>
 
                 <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }}>
-                    <Typography fontSize={18} sx={hoverEffect}>Galeria</Typography>
+                    <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Galeria</Typography>
                 </a>
                 <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }}>
-                    <Typography fontSize={18} sx={hoverEffect}>Peça já</Typography>
+                    <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Peça já</Typography>
                 </a>
             </Box>
         </Box>

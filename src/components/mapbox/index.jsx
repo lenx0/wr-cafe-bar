@@ -2,22 +2,22 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 
-// Defina a posição inicial e fixa
 const initialPosition = {
     lat: -23.4117287,
     lng: -51.9552946,
 };
 
-// Componente OrderLocation
 export default function OrderLocation() {
-    // Defina o estado address com a posição inicial fixa
     const [address] = useState({
         position: initialPosition,
         label: "Meu Comércio",
     });
 
     return (
-        <Box padding="0 200px 0 200px" backgroundColor="#dadadac3">
+        <Box 
+            padding={{ xs: '0 10px', sm: '0 20px', md: '0 40px', lg: '0 60px', xl: '0 200px' }} 
+            backgroundColor="#dadadac3"
+        >
             <Box padding={5}>
                 <MapContainer
                     center={address.position}
