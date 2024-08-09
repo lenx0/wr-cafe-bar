@@ -44,7 +44,7 @@ export default function Header({ scrollToSection }) {
                     <Box
                         display="flex"
                         flexDirection={{ xs: 'column', md: 'row' }}
-                        mt={2}
+                        pt={3}
                         ml={{ xs: 2, md: 5 }}
                         gap={{ xs: 2, md: 10 }}
                         alignItems="center"
@@ -52,7 +52,7 @@ export default function Header({ scrollToSection }) {
                         justifyContent={{ xs: 'center', md: 'flex-start' }}
                         textAlign={{ xs: 'center', md: 'left' }}
                     >
-                        <img src="/logos/logo.png" width={150} height={75} alt="Logo" />
+                        <img src="/logos/logo.png" width={175} height={85} alt="Logo" />
 
                         <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#ffffff" }} onClick={() => scrollToSection("catalog")}>
                             <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Cardápio</Typography>

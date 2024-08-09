@@ -4,12 +4,16 @@ import MenuBar from '../../menuBar'
 import { useState } from 'react'
 import SearchBar from './searchBar'
 import HorizontalProductList from '../../catalog/horizontalProductList'
+import Pagination from '../../pagination'
 
 const Catalog = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const [currentPage, setCurrentPage] = useState(1);
 
     const imgBaseUrl = "/products/"
+
+
 
     const products = [
         {
@@ -102,14 +106,14 @@ const Catalog = () => {
             images: [`${imgBaseUrl}vinho-salton.jpeg`],
             category: "vine",
             title: "Vinho Salton 900ML",
-            description: "Elaborado apenas com uvas selecionadas, ainda nos vinhedos, na região da Campanha Gaúcha, e apenas em safras especiais",
+            description: "Elaborado apenas com uvas selecionadas, ainda nos vinhedos, na região da Campanha Gaúcha",
             price: "R$10,00"
         },
         {
             images: [`${imgBaseUrl}vinho-toroloco.jpeg`],
             category: "vine",
             title: "Vinho Toro Loco 900ML",
-            description: "Toro Loco nasceu há alguns anos, no território de Utiel-Requena, com 30.000 hectares, dos quais 10.000 hectares são cultivados e colhidos principalmente à mão por 3.000 famílias.",
+            description: "Vinho com uvas colhidas principalmente à mão por 3.000 famílias de Utiel-Requena.",
             price: "R$10,00"
         },
         {
@@ -179,6 +183,14 @@ const Catalog = () => {
         return matchesSearch && matchesCategory;
     });
 
+    const itemsPerPage = 8;
+    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+    const paginatedProducts = filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
     return (
         <Box>
             {/* <Box backgroundColor="#ffffff" padding={{ xs: "20px", md: "200px 200px 0 200px" }} > */}
@@ -193,13 +205,18 @@ const Catalog = () => {
                 <CssBaseline />
             </Box>
             {isMobile ? (
-                <HorizontalProductList products={filteredProducts} />
+                <Grid container>
+                    {/* 100vh para não quebrar o item e distorcer a imagem */}
+                    <Grid item xs={12} sx={{ minHeight: '100vh' }}>
+                        <HorizontalProductList products={filteredProducts} />
+                    </Grid>
+                </Grid>
             ) : (
                 // <Box backgroundColor="#ffffff" padding={{ xs: "20px", md: "0 200px 0 200px" }}>
                 <Box padding={{ xs: "20px", md: "0 200px 0 200px" }}>
-
-                    <Grid container spacing={2} justifyContent="start" padding={2}>
-                        {filteredProducts.map((product, index) => (
+                    {/* <Grid container spacing={2} justifyContent="start" padding={2}> verificar para corrigir o problema da imagem pulando de tamanho */}
+                    <Grid container spacing={2} justifyContent="start" padding={2} sx={{ minWidth: '80vw', minHeight: '100vh' }}>
+                        {paginatedProducts.map((product, index) => (
                             <Grid item key={index} xs={12} sm={6} md={6} lg={3} xl={3}>
                                 <ProductCard
                                     images={product.images}
@@ -211,6 +228,13 @@ const Catalog = () => {
                             </Grid>
                         ))}
                     </Grid>
+                    <Box pb={5}>
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={handlePageChange}
+                        />
+                    </Box>
                 </Box>
             )}
         </Box>
