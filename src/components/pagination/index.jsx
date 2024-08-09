@@ -8,6 +8,12 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 variant="contained"
                 disabled={currentPage === 1}
                 onClick={() => onPageChange(currentPage - 1)}
+                sx={{
+                    backgroundColor: "#4d3c2b",
+                    '&:hover': {
+                      backgroundColor: "#33271c"
+                    }
+                  }}
             >
                 Anterior
             </Button>
@@ -16,6 +22,12 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 variant="contained"
                 disabled={currentPage === totalPages}
                 onClick={() => onPageChange(currentPage + 1)}
+                sx={{
+                    backgroundColor: "#4d3c2b",
+                    '&:hover': {
+                      backgroundColor: "#33271c"
+                    }
+                  }}
             >
                 Próximo
             </Button>

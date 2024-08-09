@@ -27,36 +27,36 @@ const SearchBar = ({ value, onChange, placeholder }) => {
             color: '#ffffff',
           },
           '& .MuiInput-underline:before': {
-            borderBottomColor: '#ffffff', // Cor da linha antes do foco
+            borderBottomColor: '#ffffff',
           },
           '& .MuiInput-underline:hover:before': {
-            borderBottomColor: '#ffffff', // Cor da linha ao passar o mouse
+            borderBottomColor: '#ffffff',
           },
           '& .MuiInput-underline:after': {
-            borderBottomColor: '#e0e41f', // Cor da linha ao focar
+            borderBottomColor: '#e0e41f',
           },
         }}
 
-        // sx={{
-        //   '& .MuiOutlinedInput-root': {
-        //     color: 'white',
-        //     '& fieldset': {
-        //       borderColor: '#ffffff',
-        //     },
-        //     '&:hover fieldset': {
-        //       borderColor: '#ffffff',
-        //     },
-        //     '&.Mui-focused fieldset': {
-        //       borderColor: '#ffffff',
-        //     },
-        //   },
-        //   '& .MuiInputAdornment-root': {
-        //     color: '#ffffff',
-        //   },
-        //   '& .MuiInputBase-input': {
-        //     color: '#ffffff',
-        //   },
-        // }}
+      // sx={{
+      //   '& .MuiOutlinedInput-root': {
+      //     color: 'white',
+      //     '& fieldset': {
+      //       borderColor: '#ffffff',
+      //     },
+      //     '&:hover fieldset': {
+      //       borderColor: '#ffffff',
+      //     },
+      //     '&.Mui-focused fieldset': {
+      //       borderColor: '#ffffff',
+      //     },
+      //   },
+      //   '& .MuiInputAdornment-root': {
+      //     color: '#ffffff',
+      //   },
+      //   '& .MuiInputBase-input': {
+      //     color: '#ffffff',
+      //   },
+      // }}
       />
     </Box>
   );

@@ -36,7 +36,10 @@ const Hero = ({ scrollToSection }) => {
                                 variant="contained"
                                 onClick={() => scrollToSection("catalog")}
                                 sx={{
-                                    backgroundColor: "#313131ca",
+                                    backgroundColor: "#4d3c2b",
+                                    '&:hover': {
+                                      backgroundColor: "#33271c"
+                                    },
                                     fontWeight: 'bold',
                                     fontSize: { xs: 12, md: 15 },
                                     width: { xs: 150, md: 200 },
