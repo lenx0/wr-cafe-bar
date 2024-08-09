@@ -101,7 +101,7 @@ export default function Footer() {
                 bottom: 0,
                 left: 0,
                 width: '100%',
-                backgroundColor: "#181818dd",
+                backgroundColor: "#4d3c2b",
                 color: '#fff',
                 padding: '20px',
                 textAlign: 'center',
