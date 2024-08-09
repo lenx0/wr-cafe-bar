@@ -36,7 +36,7 @@ export default function Home() {
             <Header scrollToSection={scrollToSection} />
 
             <Box ref={heroRef}>
-                <Hero />
+                <Hero scrollToSection={scrollToSection}/>
             </Box>
             
             <Box ref={catalogRef}>
