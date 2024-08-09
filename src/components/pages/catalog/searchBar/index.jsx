@@ -22,20 +22,20 @@ const SearchBar = ({ value, onChange, placeholder }) => {
           '& .MuiOutlinedInput-root': {
             color: 'white',
             '& fieldset': {
-              borderColor: '#da5c5d',
+              borderColor: '#ffffff',
             },
             '&:hover fieldset': {
-              borderColor: '#da5c5d',
+              borderColor: '#ffffff',
             },
             '&.Mui-focused fieldset': {
-              borderColor: '#da5c5d',
+              borderColor: '#ffffff',
             },
           },
           '& .MuiInputAdornment-root': {
-            color: '#da5c5d',
+            color: '#ffffff',
           },
           '& .MuiInputBase-input': {
-            color: '#da5c5d',
+            color: '#ffffff',
           },
         }}
       />

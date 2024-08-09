@@ -20,11 +20,13 @@ const HorizontalProductList = ({ products }) => {
                         mb: 2,
                     }}
                 >
-                    <img
-                        src={product.images[0]}
-                        alt={product.name}
-                        style={{ width: '80px', height: '80px', objectFit: 'cover', marginRight: '16px' }}
-                    />
+                    <Box>
+                        <img
+                            src={product.images[0]}
+                            alt={product.name}
+                            style={{ width: '80px', height: '80px', objectFit: product.category === 'vine' ? 'contain' : 'cover', borderRadius: 10, marginRight: '16px' }}
+                        />
+                    </Box>
                     <Box>
                         <Typography variant="h6" gutterBottom>
                             {product.title}

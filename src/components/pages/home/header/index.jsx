@@ -37,9 +37,10 @@ export default function Header({ scrollToSection }) {
 
         <>
             {isMobile ? (
-                <HeaderMobile scrollToSection={scrollToSection}/>
+                <HeaderMobile scrollToSection={scrollToSection} />
             ) : (
-                <Box backgroundColor="#ffffff">
+                // <Box backgroundColor="#ffffff">
+                <Box>
                     <Box
                         display="flex"
                         flexDirection={{ xs: 'column', md: 'row' }}
@@ -53,22 +54,22 @@ export default function Header({ scrollToSection }) {
                     >
                         <img src="/logos/logo.png" width={150} height={75} alt="Logo" />
 
-                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }} onClick={() => scrollToSection("catalog")}>
+                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#ffffff" }} onClick={() => scrollToSection("catalog")}>
                             <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Cardápio</Typography>
                         </a>
 
-                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }} href="https://api.whatsapp.com/send/?phone=554498019717&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
+                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#ffffff" }} href="https://api.whatsapp.com/send/?phone=554498019717&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
                             <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Whatsapp</Typography>
                         </a>
 
-                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }} onClick={() => scrollToSection("map")}>
+                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#ffffff" }} onClick={() => scrollToSection("map")}>
                             <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Localização</Typography>
                         </a>
 
-                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }}>
+                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#ffffff" }}>
                             <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Galeria</Typography>
                         </a>
-                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#1b1b1bdf" }}>
+                        <a style={{ cursor: 'pointer', textDecoration: 'none', color: "#ffffff" }}>
                             <Typography fontSize={{ xs: 16, md: 18 }} sx={hoverEffect}>Peça já</Typography>
                         </a>
                     </Box>

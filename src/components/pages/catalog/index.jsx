@@ -180,9 +180,10 @@ const Catalog = () => {
     });
 
     return (
-        <>
-            <Box backgroundColor="#ffffff" padding={{ xs: "20px", md: "200px 200px 0 200px" }}>
-                <Typography fontSize={{ xs: 30, md: 50 }} fontWeight="bold" color="#1b1b1bdf">Cardápio</Typography>
+        <Box>
+            {/* <Box backgroundColor="#ffffff" padding={{ xs: "20px", md: "200px 200px 0 200px" }} > */}
+            <Box padding={{ xs: "20px", md: "200px 200px 0 200px" }} >
+                <Typography fontSize={{ xs: 30, md: 50 }} fontWeight="bold" color="#ffffff">Cardápio</Typography>
                 <SearchBar value={searchValue} onChange={handleSearchChange} placeholder="Busque um item" />
                 <Grid container justifyContent="center">
                     <Grid item xs={12}>
@@ -194,7 +195,8 @@ const Catalog = () => {
             {isMobile ? (
                 <HorizontalProductList products={filteredProducts} />
             ) : (
-                <Box backgroundColor="#ffffff" padding={{ xs: "20px", md: "0 200px 0 200px" }}>
+                // <Box backgroundColor="#ffffff" padding={{ xs: "20px", md: "0 200px 0 200px" }}>
+                <Box padding={{ xs: "20px", md: "0 200px 0 200px" }}>
 
                     <Grid container spacing={2} justifyContent="start" padding={2}>
                         {filteredProducts.map((product, index) => (
@@ -211,7 +213,7 @@ const Catalog = () => {
                     </Grid>
                 </Box>
             )}
-        </>
+        </Box>
 
     )
 }

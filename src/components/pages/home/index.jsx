@@ -33,22 +33,43 @@ export default function Home() {
     return (
         <>
             <Box backgroundColor="#ffffff">
-            <Header scrollToSection={scrollToSection} />
+                <Box sx={{
+                    // backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(66, 56, 56, 0.5)), url('/images/background.jpg')",
+                    // backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(66, 56, 56, 0.5)), url('/images/background2.png')",
+                    // backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(66, 56, 56, 0.5)), url('/images/background3.jpg')",
+                    backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(66, 56, 56, 0.5)), url('/images/background4.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    height: { xs: '50vh', md: '60vh', lg: '100vh' }
+                }}>
+                    <Header scrollToSection={scrollToSection} />
+                    <Box ref={heroRef}>
+                        <Hero scrollToSection={scrollToSection} />
+                    </Box>
+                </Box>
+                <Box sx={{
+                    // backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(66, 56, 56, 0.5)), url('/images/background.jpg')",
+                    // backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(66, 56, 56, 0.5)), url('/images/background2.png')",
+                    backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(66, 56, 56, 0.5)), url('/images/background3.jpg')",
+                    // backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(66, 56, 56, 0.5)), url('/images/background4.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    position: 'relative'
 
-            <Box ref={heroRef}>
-                <Hero scrollToSection={scrollToSection}/>
+                }}>
+
+                    <Box ref={catalogRef}>
+                        <Catalog />
+                    </Box>
+                </Box>
+                <Box ref={mapboxRef}>
+                    <MapboxMap />
+                </Box>
+
+                <Footer />
             </Box>
-            
-            <Box ref={catalogRef}>
-                <Catalog />
-            </Box>
-            
-            <Box ref={mapboxRef}>
-                <MapboxMap />
-            </Box>
-            
-            <Footer />
-        </Box>
         </>
     );
 }
