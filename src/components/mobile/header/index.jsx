@@ -19,9 +19,21 @@ const HeaderMobile = ({ scrollToSection }) => {
     });
 
     const toggleDrawer = (value) => {
-        scrollToSection(value)
-        setIsDrawerOpen(!isDrawerOpen)
+        if (value === "whatsapp") {
+            openWhatsApp();
+        } else {
+            scrollToSection(value);
+        }
+        setIsDrawerOpen(!isDrawerOpen);
     }
+
+    const openWhatsApp = () => {
+        const phoneNumber = "554498019717"; 
+        const message = "Olá, gostaria de mais informações sobre os seus serviços.";
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, "_blank");
+    };
 
     return (
         <>
@@ -38,7 +50,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                             mb: 2,
                         }} onClick={() => toggleDrawer("catalog")}>
                             <ListItemIcon>
-                                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                <i className="fa fa-cutlery" aria-hidden="true"></i>
                             </ListItemIcon>
                             <ListItemText
                                 primary="Cardápio"
@@ -50,7 +62,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                             mb: 2,
                         }} onClick={() => toggleDrawer("whatsapp")}>
                             <ListItemIcon>
-                                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                <i className="fa fa-whatsapp" aria-hidden="true"></i>
                             </ListItemIcon>
                             <ListItemText
                                 primary="Whatsapp"
@@ -61,7 +73,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                             mb: 2,
                         }} onClick={() => toggleDrawer("map")}>
                             <ListItemIcon>
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <i className="fa fa-map-marker" aria-hidden="true"></i>
                             </ListItemIcon>
                             <ListItemText
                                 primary="Localização"
@@ -72,7 +84,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                             mb: 2,
                         }} onClick={() => toggleDrawer("catalog")}>
                             <ListItemIcon>
-                                <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                                <i className="fa fa-camera-retro" aria-hidden="true"></i>
                             </ListItemIcon>
                             <ListItemText
                                 primary="Galeria"
@@ -82,7 +94,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                         <ListItem button key="Take now" sx={{
                         }}>
                             <ListItemIcon>
-                                <i class="fa fa-motorcycle" aria-hidden="true" />
+                                <i className="fa fa-motorcycle" aria-hidden="true" />
                             </ListItemIcon>
                             <ListItemText
                                 primary="Peça já"
