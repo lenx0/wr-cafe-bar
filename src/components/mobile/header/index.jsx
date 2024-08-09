@@ -28,7 +28,7 @@ const HeaderMobile = ({ scrollToSection }) => {
     }
 
     const openWhatsApp = () => {
-        const phoneNumber = "554498019717"; 
+        const phoneNumber = "554498019717";
         const message = "Olá, gostaria de mais informações sobre os seus serviços.";
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -41,7 +41,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                 <MenuIcon sx={{ fontSize: "50px" }} />
             </IconButton>
             <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer}>
-                <Box sx={{ width: 250 }}>
+                <Box sx={{ width: 250, height: '100vh', backgroundColor: '#884a3ef2' }} color='#ffffff'>
                     <Box display="flex" alignItems="center" justifyContent="center" mt={2} mb={2}>
                         <img src={Logo} alt="Logo" width={200} />
                     </Box>
@@ -50,7 +50,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                             mb: 2,
                         }} onClick={() => toggleDrawer("catalog")}>
                             <ListItemIcon>
-                                <i className="fa fa-cutlery" aria-hidden="true"></i>
+                                <i className="fa fa-cutlery" style={{ color: '#fff' }} aria-hidden="true"></i>
                             </ListItemIcon>
                             <ListItemText
                                 primary="Cardápio"
@@ -62,7 +62,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                             mb: 2,
                         }} onClick={() => toggleDrawer("whatsapp")}>
                             <ListItemIcon>
-                                <i className="fa fa-whatsapp" aria-hidden="true"></i>
+                                <i className="fa fa-whatsapp" style={{ color: '#fff' }} aria-hidden="true"></i>
                             </ListItemIcon>
                             <ListItemText
                                 primary="Whatsapp"
@@ -73,7 +73,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                             mb: 2,
                         }} onClick={() => toggleDrawer("map")}>
                             <ListItemIcon>
-                                <i className="fa fa-map-marker" aria-hidden="true"></i>
+                                <i className="fa fa-map-marker" style={{ color: '#fff' }} aria-hidden="true"></i>
                             </ListItemIcon>
                             <ListItemText
                                 primary="Localização"
@@ -84,7 +84,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                             mb: 2,
                         }} onClick={() => toggleDrawer("catalog")}>
                             <ListItemIcon>
-                                <i className="fa fa-camera-retro" aria-hidden="true"></i>
+                                <i className="fa fa-camera-retro" style={{ color: '#fff' }} aria-hidden="true"></i>
                             </ListItemIcon>
                             <ListItemText
                                 primary="Galeria"
@@ -94,7 +94,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                         <ListItem button key="Take now" sx={{
                         }}>
                             <ListItemIcon>
-                                <i className="fa fa-motorcycle" aria-hidden="true" />
+                                <i className="fa fa-motorcycle" style={{ color: '#fff' }} aria-hidden="true" />
                             </ListItemIcon>
                             <ListItemText
                                 primary="Peça já"
@@ -102,7 +102,7 @@ const HeaderMobile = ({ scrollToSection }) => {
                             />
                         </ListItem>
                     </List>
-                    <Box display="flex" mt={2} justifyContent="center" p={2} backgroundColor="#685340">
+                    <Box display="flex" justifyContent="center" mt={2} p={2} backgroundColor="#000000" sx={{ width: 250, position: 'fixed', left: 0, bottom: 0 }}>
                         <Box>
                             <SocialIcon href="https://facebook.com" style={{ color: "white" }} target="_blank" rel="noopener noreferrer" className="fab fa-facebook" aria-label="Facebook" />
                         </Box>

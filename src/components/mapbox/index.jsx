@@ -33,9 +33,10 @@ export default function OrderLocation() {
     });
 
     return (
-        <Box 
+        <Box
             padding={{ xs: '0 10px', sm: '0 20px', md: '0 40px', lg: '0 60px', xl: '0 200px' }}
-            backgroundColor="#dadadac3"
+            backgroundColor="#f1edede6"
+            position="relative"
         >
             <Box padding={2}>
                 <MapContainer

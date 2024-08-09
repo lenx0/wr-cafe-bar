@@ -24,8 +24,8 @@ const MenuBar = ({ onCategoryChange }) => {
     };
 
     return (
-        <Box margin={{ xs: '10px', sm: '20px' }} backgroundColor="#ffffff">
-            <AppBar position="static" color="default" sx={{ borderRadius: '8px' }}>
+        <Box margin={{ xs: '10px', sm: '20px' }} backgroundColor="#ffffff" borderRadius={2}>
+            <AppBar position="static" color="default" sx={{ borderRadius: 2 }}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -36,18 +36,25 @@ const MenuBar = ({ onCategoryChange }) => {
                     indicatorColor="primary"
                     sx={{
                         display: 'flex',
+                        borderRadius: 2,
                         justifyContent: 'center',
                         alignItems: 'center',
                         '& .MuiTabs-indicator': {
-                            backgroundColor: '#ffffff',
+                            backgroundColor: '#e0e41f',
+
                         },
                         '& .MuiTab-root': {
-                            minWidth: 120, // Adjust minWidth if needed
+                            minWidth: 120,
                             color: '#000000',
                             textTransform: 'none',
+                            margin: 0,
+                            padding: 0,
+                            height: '100%',
                             fontSize: { xs: '0.75rem', sm: '1rem' },
                             '&.Mui-selected': {
-                                backgroundColor: '#685340',
+                                margin: 0,
+                                padding: 0,
+                                backgroundColor: '#4d3b2c',
                                 color: '#ffffff',
                             },
                         },
@@ -57,7 +64,7 @@ const MenuBar = ({ onCategoryChange }) => {
                     }}
                 >
                     {menuItems.map((item, index) => (
-                        <Tab key={index} label={item} style={{ flexGrow: 1 }} />
+                        <Tab key={index} label={item} style={{ flexGrow: 1, borderRadius: 3 }} />
                     ))}
                 </Tabs>
             </AppBar>

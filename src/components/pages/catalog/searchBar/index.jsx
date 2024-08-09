@@ -18,26 +18,45 @@ const SearchBar = ({ value, onChange, placeholder }) => {
             </InputAdornment>
           ),
         }}
+
         sx={{
-          '& .MuiOutlinedInput-root': {
-            color: 'white',
-            '& fieldset': {
-              borderColor: '#da5c5d',
-            },
-            '&:hover fieldset': {
-              borderColor: '#da5c5d',
-            },
-            '&.Mui-focused fieldset': {
-              borderColor: '#da5c5d',
-            },
-          },
           '& .MuiInputAdornment-root': {
-            color: '#da5c5d',
+            color: '#ffffff',
           },
           '& .MuiInputBase-input': {
-            color: '#da5c5d',
+            color: '#ffffff',
+          },
+          '& .MuiInput-underline:before': {
+            borderBottomColor: '#ffffff',
+          },
+          '& .MuiInput-underline:hover:before': {
+            borderBottomColor: '#ffffff',
+          },
+          '& .MuiInput-underline:after': {
+            borderBottomColor: '#e0e41f',
           },
         }}
+
+      // sx={{
+      //   '& .MuiOutlinedInput-root': {
+      //     color: 'white',
+      //     '& fieldset': {
+      //       borderColor: '#ffffff',
+      //     },
+      //     '&:hover fieldset': {
+      //       borderColor: '#ffffff',
+      //     },
+      //     '&.Mui-focused fieldset': {
+      //       borderColor: '#ffffff',
+      //     },
+      //   },
+      //   '& .MuiInputAdornment-root': {
+      //     color: '#ffffff',
+      //   },
+      //   '& .MuiInputBase-input': {
+      //     color: '#ffffff',
+      //   },
+      // }}
       />
     </Box>
   );
