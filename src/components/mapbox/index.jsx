@@ -1,6 +1,25 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
+// Override dos ícones padrão do Leaflet
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import markerRetina from 'leaflet/dist/images/marker-icon-2x.png';
+
+let DefaultIcon = L.icon({
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+    iconRetinaUrl: markerRetina,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 const initialPosition = {
     lat: -23.4117287,
@@ -15,10 +34,10 @@ export default function OrderLocation() {
 
     return (
         <Box 
-            padding={{ xs: '0 10px', sm: '0 20px', md: '0 40px', lg: '0 60px', xl: '0 200px' }} 
+            padding={{ xs: '0 10px', sm: '0 20px', md: '0 40px', lg: '0 60px', xl: '0 200px' }}
             backgroundColor="#dadadac3"
         >
-            <Box padding={5}>
+            <Box padding={2}>
                 <MapContainer
                     center={address.position}
                     zoom={13}
