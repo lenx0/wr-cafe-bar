@@ -3,7 +3,7 @@ import HeaderMobile from "../../../mobile/header"
 
 export default function Header({ scrollToSection }) {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const hoverEffect = {
         position: 'relative',

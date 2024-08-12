@@ -41,7 +41,7 @@ export default function Home() {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
-                    height: { xs: '50vh', md: '60vh', lg: '100vh' }
+                    height: { xs: '100vh', md: '100vh', lg: '100vh' }
                 }}>
                     <Header scrollToSection={scrollToSection} />
                     <Box ref={heroRef}>
