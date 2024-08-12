@@ -194,7 +194,7 @@ const Catalog = () => {
     return (
         <Box>
             {/* <Box backgroundColor="#ffffff" padding={{ xs: "20px", md: "200px 200px 0 200px" }} > */}
-            <Box padding={{ xs: "20px", md: "200px 200px 0 200px" }} >
+            <Box padding={{ xs: "20px", md: "100px 40px 0 40px" }} >
                 <Typography fontSize={{ xs: 30, md: 50 }} fontWeight="bold" color="#ffffff">Cardápio</Typography>
                 <SearchBar value={searchValue} onChange={handleSearchChange} placeholder="Busque um item" />
                 <Grid container justifyContent="center">
@@ -203,40 +203,40 @@ const Catalog = () => {
                     </Grid>
                 </Grid>
                 <CssBaseline />
+
+                {isMobile ? (
+                    <Grid container>
+                        {/* 100vh para não quebrar o item e distorcer a imagem */}
+                        <Grid item xs={12} sx={{ minHeight: '100vh' }}>
+                            <HorizontalProductList products={filteredProducts} />
+                        </Grid>
+                    </Grid>
+                ) : (
+                    <>
+                        {/* <Grid container spacing={2} justifyContent="start" padding={2}> verificar para corrigir o problema da imagem pulando de tamanho */}
+                        <Grid container spacing={2} justifyContent="start" padding={2} sx={{ minWidth: '80vw', minHeight: '100vh' }}>
+                            {paginatedProducts.map((product, index) => (
+                                <Grid item key={index} xs={12} sm={6} md={6} lg={3} xl={3}>
+                                    <ProductCard
+                                        images={product.images}
+                                        category={product.category}
+                                        title={product.title}
+                                        description={product.description}
+                                        price={product.price}
+                                    />
+                                </Grid>
+                            ))}
+                        </Grid>
+                        <Box pb={5}>
+                            <Pagination
+                                currentPage={currentPage}
+                                totalPages={totalPages}
+                                onPageChange={handlePageChange}
+                            />
+                        </Box>
+                    </>
+                )}
             </Box>
-            {isMobile ? (
-                <Grid container>
-                    {/* 100vh para não quebrar o item e distorcer a imagem */}
-                    <Grid item xs={12} sx={{ minHeight: '100vh' }}>
-                        <HorizontalProductList products={filteredProducts} />
-                    </Grid>
-                </Grid>
-            ) : (
-                // <Box backgroundColor="#ffffff" padding={{ xs: "20px", md: "0 200px 0 200px" }}>
-                <Box padding={{ xs: "20px", md: "0 200px 0 200px" }}>
-                    {/* <Grid container spacing={2} justifyContent="start" padding={2}> verificar para corrigir o problema da imagem pulando de tamanho */}
-                    <Grid container spacing={2} justifyContent="start" padding={2} sx={{ minWidth: '80vw', minHeight: '100vh' }}>
-                        {paginatedProducts.map((product, index) => (
-                            <Grid item key={index} xs={12} sm={6} md={6} lg={3} xl={3}>
-                                <ProductCard
-                                    images={product.images}
-                                    category={product.category}
-                                    title={product.title}
-                                    description={product.description}
-                                    price={product.price}
-                                />
-                            </Grid>
-                        ))}
-                    </Grid>
-                    <Box pb={5}>
-                        <Pagination
-                            currentPage={currentPage}
-                            totalPages={totalPages}
-                            onPageChange={handlePageChange}
-                        />
-                    </Box>
-                </Box>
-            )}
         </Box>
 
     )

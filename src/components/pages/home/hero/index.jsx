@@ -3,7 +3,7 @@ import Header from "../header";
 
 const Hero = ({ scrollToSection }) => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     return (
         <>
             <Grid
@@ -18,7 +18,7 @@ const Hero = ({ scrollToSection }) => {
                             <img src="/logos/logo.png" width={300} />
                         ) : (
                             <Typography
-                                fontSize={{ xs: 36, md: 48, lg: 72 }}
+                                fontSize={{ xs: 66, md: 48, lg: 72 }}
                                 fontWeight={700}
                                 color="#fcfcfc"
                             >
@@ -27,29 +27,30 @@ const Hero = ({ scrollToSection }) => {
                         )}
                         <Typography
                             fontSize={{ xs: 16, md: 18, lg: 22 }}
+                            margin={{ xs: 1 }}
                             color="#ffffff"
                         >
-                            Conheça nosso cardápio e nosso ambiente super agradável!
+                            O melhor lugar para se levantar, comer e beber, em um ambiente agradável e confortável.
                         </Typography>
-                        <Box mt={{ xs: 5, lg: 15 }} display="flex" justifyContent={{ xs: 'center', md: 'flex-start' }}>
-                            <Button
-                                variant="contained"
-                                onClick={() => scrollToSection("catalog")}
-                                sx={{
-                                    backgroundColor: "#4d3c2b",
-                                    '&:hover': {
-                                      backgroundColor: "#33271c"
-                                    },
-                                    fontWeight: 'bold',
-                                    fontSize: { xs: 12, md: 15 },
-                                    width: { xs: 150, md: 200 },
-                                    height: { xs: 40, md: 50 },
-                                    borderRadius: 2
-                                }}
-                            >
-                                Cardápio
-                            </Button>
-                        </Box>
+                            <Box mt={{ xs: 5, lg: 15 }} display="flex" justifyContent={{ xs: 'center', md: 'flex-start' }}>
+                                <Button
+                                    variant="contained"
+                                    onClick={() => scrollToSection("catalog")}
+                                    sx={{
+                                        backgroundColor: "#4d3c2b",
+                                        '&:hover': {
+                                            backgroundColor: "#33271c"
+                                        },
+                                        fontWeight: 'bold',
+                                        fontSize: { xs: 12, md: 15 },
+                                        width: { xs: 150, md: 200 },
+                                        height: { xs: 40, md: 50 },
+                                        borderRadius: 2
+                                    }}
+                                >
+                                    Cardápio
+                                </Button>
+                            </Box>
                     </Box>
                 </Grid>
                 {/* <Grid item xs={12} md={6} lg={6} display="flex" justifyContent={{ xs: 'center', md: 'end' }} alignItems="center">
