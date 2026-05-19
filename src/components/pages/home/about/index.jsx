@@ -97,7 +97,7 @@ export default function About() {
             <Typography sx={{ color: "rgba(245,235,224,0.75)", fontSize: { xs: 16, md: 17 }, lineHeight: 1.75 }}>
               No <strong>WR Café Bar</strong> a gente acredita que comida boa, bebida gelada
               e gente querida fazem milagre. Nosso espaço foi pensado para receber
-              você como em casa — com porções fartas preparadas com carinho,
+              você como em casa com porções fartas preparadas com carinho,
               drinks autorais e aquele atendimento que faz a diferença.
             </Typography>
 

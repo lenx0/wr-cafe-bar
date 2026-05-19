@@ -105,7 +105,7 @@ const Hero = ({ scrollToSection }) => {
           }}
         >
           O melhor lugar para se reunir, comer e beber. Porções generosas,
-          drinks autorais e um ambiente que aquece a alma — feito para
+          drinks autorais e um ambiente que aquece a alma feito para
           encontros que valem ser lembrados.
         </Typography>
 
