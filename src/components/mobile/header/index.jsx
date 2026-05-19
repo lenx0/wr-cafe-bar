@@ -1,122 +1,129 @@
 import { useState } from "react";
-import { Box, IconButton, Drawer, List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { styled } from '@mui/system';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import Logo from "/logos/logo.png";
+import { Box, Drawer, IconButton, Stack, Typography } from "@mui/material";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import RestaurantRoundedIcon from "@mui/icons-material/RestaurantRounded";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
+import PhotoLibraryRoundedIcon from "@mui/icons-material/PhotoLibraryRounded";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+
+const items = [
+  { label: "Sobre", target: "about", icon: <InfoOutlinedIcon /> },
+  { label: "Cardápio", target: "catalog", icon: <RestaurantRoundedIcon /> },
+  { label: "Galeria", target: "gallery", icon: <PhotoLibraryRoundedIcon /> },
+  { label: "Localização", target: "map", icon: <LocationOnRoundedIcon /> },
+];
 
 const HeaderMobile = ({ scrollToSection }) => {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
-    const SocialIcon = styled('a')({
-        color: '#fff',
-        margin: '0 10px',
-        fontSize: '24px',
-        textDecoration: 'none',
-        '&:hover': {
-            color: '#da5c5d',
-        },
-    });
-
-    const toggleDrawer = (value) => {
-        if (value === "whatsapp") {
-            openWhatsApp();
-        } else {
-            scrollToSection(value);
-        }
-        setIsDrawerOpen(!isDrawerOpen);
+  const handle = (target) => {
+    if (target === "whatsapp") {
+      window.open(
+        "https://wa.me/554498019717?text=" + encodeURIComponent("Olá! Gostaria de mais informações."),
+        "_blank"
+      );
+    } else {
+      scrollToSection(target);
     }
+    setOpen(false);
+  };
 
-    const openWhatsApp = () => {
-        const phoneNumber = "554498019717";
-        const message = "Olá, gostaria de mais informações sobre os seus serviços.";
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-        window.open(whatsappUrl, "_blank");
-    };
-
-    return (
-        <>
-            <IconButton onClick={toggleDrawer} color="inherit">
-                <MenuIcon sx={{ fontSize: "50px" }} />
+  return (
+    <>
+      <IconButton
+        onClick={() => setOpen(true)}
+        sx={{
+          color: "#e8b86d",
+          border: "1px solid rgba(232,184,109,0.35)",
+          background: "rgba(13,9,7,0.5)",
+          backdropFilter: "blur(6px)",
+        }}
+      >
+        <MenuRoundedIcon />
+      </IconButton>
+      <Drawer
+        anchor="right"
+        open={open}
+        onClose={() => setOpen(false)}
+        PaperProps={{
+          sx: {
+            width: 290,
+            background: "linear-gradient(180deg, #1a120b 0%, #0d0907 100%)",
+            color: "#f5ebe0",
+            borderLeft: "1px solid rgba(232,184,109,0.18)",
+          },
+        }}
+      >
+        <Stack sx={{ height: "100%" }}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ p: 2.5 }}>
+            <img src="/logos/logo.png" alt="WR Café Bar" style={{ width: 120 }} />
+            <IconButton onClick={() => setOpen(false)} sx={{ color: "#f5ebe0" }}>
+              <CloseRoundedIcon />
             </IconButton>
-            <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer}>
-                <Box sx={{ width: 250, height: '100vh', backgroundColor: '#523a22' }} color='#ffffff'>
-                    <Box display="flex" alignItems="center" justifyContent="center" mt={2} mb={2}>
-                        <img src={Logo} alt="Logo" width={200} />
-                    </Box>
-                    <List>
-                        <ListItem button key="Home" sx={{
-                            mb: 2,
-                        }} onClick={() => toggleDrawer("catalog")}>
-                            <ListItemIcon>
-                                <i className="fa fa-cutlery" style={{ color: '#fff' }} aria-hidden="true"></i>
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Cardápio"
-                                primaryTypographyProps={{ fontSize: "18px" }}
+          </Stack>
 
-                            />
-                        </ListItem>
-                        <ListItem button key="Whatsapp" sx={{
-                            mb: 2,
-                        }} onClick={() => toggleDrawer("whatsapp")}>
-                            <ListItemIcon>
-                                <i className="fa fa-whatsapp" style={{ color: '#fff' }} aria-hidden="true"></i>
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Whatsapp"
-                                primaryTypographyProps={{ fontSize: "18px" }}
-                            />
-                        </ListItem>
-                        <ListItem button key="Location" sx={{
-                            mb: 2,
-                        }} onClick={() => toggleDrawer("map")}>
-                            <ListItemIcon>
-                                <i className="fa fa-map-marker" style={{ color: '#fff' }} aria-hidden="true"></i>
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Localização"
-                                primaryTypographyProps={{ fontSize: "18px" }}
-                            />
-                        </ListItem>
-                        <ListItem button key="Catalog" sx={{
-                            mb: 2,
-                        }} onClick={() => toggleDrawer("catalog")}>
-                            <ListItemIcon>
-                                <i className="fa fa-camera-retro" style={{ color: '#fff' }} aria-hidden="true"></i>
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Galeria"
-                                primaryTypographyProps={{ fontSize: "18px" }}
-                            />
-                        </ListItem>
-                        <ListItem button key="Take now" sx={{
-                        }}>
-                            <ListItemIcon>
-                                <i className="fa fa-motorcycle" style={{ color: '#fff' }} aria-hidden="true" />
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Peça já"
-                                primaryTypographyProps={{ fontSize: "18px" }}
-                            />
-                        </ListItem>
-                    </List>
-                    <Box display="flex" justifyContent="center" mt={2} p={2} backgroundColor="#000000" sx={{ width: 250, position: 'fixed', left: 0, bottom: 0 }}>
-                        <Box>
-                            <SocialIcon href="https://facebook.com" style={{ color: "white" }} target="_blank" rel="noopener noreferrer" className="fab fa-facebook" aria-label="Facebook" />
-                        </Box>
-                        <Box>
-                            <SocialIcon href="https://instagram.com" style={{ color: "white" }} target="_blank" rel="noopener noreferrer" className="fab fa-instagram" aria-label="Instagram" />
-                        </Box>
-                        <Box>
-                            <SocialIcon href="https://twitter.com" style={{ color: "white" }} target="_blank" rel="noopener noreferrer" className="fab fa-twitter" aria-label="Twitter" />
-                        </Box>
-                    </Box>
-                </Box>
-            </Drawer>
-        </>
-    )
-}
+          <Stack spacing={0.5} sx={{ px: 1.5, mt: 2, flex: 1 }}>
+            {items.map((it) => (
+              <Stack
+                key={it.label}
+                direction="row"
+                alignItems="center"
+                spacing={2}
+                onClick={() => handle(it.target)}
+                sx={{
+                  px: 2,
+                  py: 1.6,
+                  borderRadius: 2,
+                  cursor: "pointer",
+                  transition: "all .25s ease",
+                  color: "rgba(245,235,224,0.85)",
+                  "& svg": { color: "#e8b86d" },
+                  "&:hover": { background: "rgba(232,184,109,0.08)", color: "#fff" },
+                }}
+              >
+                {it.icon}
+                <Typography sx={{ fontSize: 16, fontWeight: 500 }}>{it.label}</Typography>
+              </Stack>
+            ))}
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              onClick={() => handle("whatsapp")}
+              sx={{
+                mx: 1,
+                mt: 2,
+                px: 2,
+                py: 1.6,
+                borderRadius: 2,
+                cursor: "pointer",
+                background: "linear-gradient(135deg, #e8b86d 0%, #c69049 100%)",
+                color: "#1a120b",
+                fontWeight: 700,
+                boxShadow: "0 12px 24px -8px rgba(232,184,109,0.45)",
+              }}
+            >
+              <WhatsAppIcon />
+              <Typography sx={{ fontSize: 15, fontWeight: 700 }}>Peça já pelo WhatsApp</Typography>
+            </Stack>
+          </Stack>
 
-export default HeaderMobile
+          <Stack direction="row" justifyContent="center" spacing={1} sx={{ p: 3, borderTop: "1px solid rgba(232,184,109,0.15)" }}>
+            <IconButton href="https://instagram.com" target="_blank" sx={{ color: "#e8b86d" }}>
+              <InstagramIcon />
+            </IconButton>
+            <IconButton href="https://facebook.com" target="_blank" sx={{ color: "#e8b86d" }}>
+              <FacebookIcon />
+            </IconButton>
+          </Stack>
+        </Stack>
+      </Drawer>
+    </>
+  );
+};
+
+export default HeaderMobile;

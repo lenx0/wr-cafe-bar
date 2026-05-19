@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
 
 * {
   margin: 0;
@@ -6,6 +6,36 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;;
+html, body {
+  background-color: #0d0907;
+  color: #f5ebe0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body { overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #1a120b; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c69049, #8a5a2b);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #e8b86d, #c69049); }
+
+::selection { background: rgba(232, 184, 109, 0.35); color: #fff; }
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f4d29a 0%, #e8b86d 45%, #c69049 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass {
+  background: rgba(26, 18, 11, 0.55);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(232, 184, 109, 0.18);
 }

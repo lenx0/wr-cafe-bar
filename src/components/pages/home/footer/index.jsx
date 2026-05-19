@@ -1,127 +1,128 @@
-import { Box, Button, Checkbox, Container, FormControlLabel, Grid, Stack, TextField, Typography } from "@mui/material";
-import { styled } from '@mui/system';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import { Link } from "react-router-dom";
+import { Box, Container, Grid, IconButton, Stack, Typography, Divider } from "@mui/material";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
+import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
+import ScheduleRoundedIcon from "@mui/icons-material/ScheduleRounded";
+
+const social = [
+  { icon: <InstagramIcon />, href: "https://instagram.com", label: "Instagram" },
+  { icon: <FacebookIcon />, href: "https://facebook.com", label: "Facebook" },
+  { icon: <WhatsAppIcon />, href: "https://api.whatsapp.com/send/?phone=554498019717", label: "WhatsApp" },
+];
 
 export default function Footer() {
-
-    const SocialIcon = styled('a')({
-        color: '#fff',
-        margin: '0 10px',
-        fontSize: '24px',
-        textDecoration: 'none',
-        '&:hover': {
-            color: '#da5c5d',
-        },
-    });
-
-    return (
-        <>
-            <Box sx={{ backgroundColor: '#f5f5f5', color: 'black', py: 6 }}>
-                <Container maxWidth="lg">
-                    <Grid container spacing={4} justifyContent="center">
-                        <Grid item xs={12} sm={6} md={3} display="flex" justifyContent="center">
-                            <Box textAlign="center">
-                                <img src="/logos/visa.jpg" alt="Visa" style={{ width: '70px', height: '50px', marginRight: '5px', marginBottom: '10px' }} />
-                                <img src="/logos/master.jpg" alt="MasterCard" style={{ width: '70px', height: '45px', marginRight: '5px', marginBottom: '10px' }} />
-                                <img src="/logos/american.png" alt="American Express" style={{ width: '70px', marginRight: '5px', height: '45px', marginBottom: '13px' }} />
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3} display="flex" justifyContent="center">
-                            <Box textAlign="center">
-                                <Typography variant="h6" gutterBottom>
-                                    Unidades
-                                </Typography>
-                                <Typography variant="body2">Nossos Produtos</Typography>
-                                <Typography variant="body2">Eventos</Typography>
-                                <Typography variant="body2">Contato</Typography>
-                                <Typography variant="body2">Gift Card</Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3} display="flex" justifyContent="center">
-                            <Box textAlign="center">
-                                <Typography variant="h6" gutterBottom>
-                                    Trabalhe Conosco
-                                </Typography>
-                                <Typography variant="body2">Seja Sócio</Typography>
-                                <Typography variant="body2">Transparência Salarial</Typography>
-                                <Typography variant="body2">Remoção de Dados</Typography>
-                                <Typography variant="body2">Política de Privacidade</Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3} display="flex" flexDirection="column" alignItems="center">
-                            <Button
-                                variant="contained"
-                                href="https://www.apple.com/app-store/"
-                                sx={{ mb: 1, backgroundColor: '#000', color: '#fff', textTransform: 'none' }}
-                            >
-                                <img src="/logos/appstore.png" alt="App Store" style={{ width: '120px' }} />
-                            </Button>
-                            <Button
-                                variant="contained"
-                                href="https://play.google.com/store"
-                                sx={{ mb: 2, backgroundColor: '#000', color: '#fff', textTransform: 'none' }}
-                            >
-                                <img src="/logos/googleplay.png" alt="Google Play" style={{ width: '120px' }} />
-                            </Button>
-                            <Typography variant="h6" gutterBottom>
-                                Newsletter
-                            </Typography>
-                            <TextField
-                                variant="outlined"
-                                size="small"
-                                placeholder="E-mail"
-                                sx={{
-                                    backgroundColor: '#fff',
-                                    borderRadius: '4px',
-                                    mb: 1,
-                                    '& .MuiOutlinedInput-root': {
-                                        '& fieldset': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '&:hover fieldset': {
-                                            borderColor: '#da5c5d',
-                                        },
-                                        '&.Mui-focused fieldset': {
-                                            borderColor: '#da5c5d',
-                                        },
-                                    },
-                                }}
-                            />
-                            <FormControlLabel
-                                control={<Checkbox sx={{ color: '#da5c5d' }} />}
-                                label={<Typography variant="body2">Aceito a <Link href="#" underline="always" sx={{ color: '#da5c5d' }}>política de privacidade</Link>.</Typography>}
-                            />
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Box>
-            <Stack sx={{
-                position: 'relative',
-                bottom: 0,
-                left: 0,
-                width: '100%',
-                backgroundColor: "#4d3c2b",
-                color: '#fff',
-                padding: '20px',
-                textAlign: 'center',
-                borderTop: '1px solid #444',
-            }}>
-                <Stack>
-                    <Typography variant="body2" marginTop={2}>Siga nas redes sociais</Typography>
-                </Stack>
-                <Stack direction="row" justifyContent="center" marginTop={1.2}>
-                    <SocialIcon href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="fab fa-facebook" aria-label="Facebook" />
-                    <SocialIcon href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="fab fa-instagram" aria-label="Instagram" />
-                    <SocialIcon href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="fab fa-twitter" aria-label="Twitter" />
-                </Stack>
-                <Stack>
-                    <Typography variant="body2" marginTop={2}>Contato: (00) 1234-5678 | email@barzinho.com</Typography>
-                </Stack>
-                <Stack>
-                    <Typography variant="body1">© 2024 Todos os direitos reservados</Typography>
-                </Stack>
+  return (
+    <Box
+      component="footer"
+      sx={{
+        position: "relative",
+        background: "linear-gradient(180deg, #0d0907 0%, #1a120b 100%)",
+        borderTop: "1px solid rgba(232,184,109,0.18)",
+        pt: { xs: 8, md: 10 },
+        pb: 3,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Grid container spacing={5}>
+          <Grid item xs={12} md={4}>
+            <Stack spacing={2.5}>
+              <img src="/logos/logo.png" alt="WR Café Bar" style={{ width: 170, height: "auto" }} />
+              <Typography sx={{ color: "rgba(245,235,224,0.7)", fontSize: 14.5, lineHeight: 1.7, maxWidth: 320 }}>
+                Há mais de 12 anos servindo bons momentos, boa comida e boas bebidas.
+                O ponto de encontro favorito da cidade.
+              </Typography>
+              <Stack direction="row" spacing={1.2}>
+                {social.map((s) => (
+                  <IconButton
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    sx={{
+                      color: "#e8b86d",
+                      border: "1px solid rgba(232,184,109,0.3)",
+                      width: 42,
+                      height: 42,
+                      transition: "all .3s ease",
+                      "&:hover": {
+                        background: "linear-gradient(135deg, #e8b86d, #c69049)",
+                        color: "#1a120b",
+                        borderColor: "transparent",
+                        transform: "translateY(-3px)",
+                      },
+                    }}
+                  >
+                    {s.icon}
+                  </IconButton>
+                ))}
+              </Stack>
             </Stack>
-        </>
-    );
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={4}>
+            <Typography sx={{ fontFamily: '"Playfair Display"', fontSize: 20, fontWeight: 700, mb: 2.5, color: "#e8b86d" }}>
+              Contato
+            </Typography>
+            <Stack spacing={2}>
+              <Stack direction="row" spacing={1.5} alignItems="flex-start">
+                <LocationOnRoundedIcon sx={{ color: "#e8b86d", fontSize: 20 }} />
+                <Typography sx={{ color: "rgba(245,235,224,0.75)", fontSize: 14.5 }}>
+                  Rua Principal, 123 — Centro<br />Sua cidade, PR
+                </Typography>
+              </Stack>
+              <Stack direction="row" spacing={1.5} alignItems="center">
+                <PhoneRoundedIcon sx={{ color: "#e8b86d", fontSize: 20 }} />
+                <Typography sx={{ color: "rgba(245,235,224,0.75)", fontSize: 14.5 }}>(44) 9801-9717</Typography>
+              </Stack>
+              <Stack direction="row" spacing={1.5} alignItems="center">
+                <EmailRoundedIcon sx={{ color: "#e8b86d", fontSize: 20 }} />
+                <Typography sx={{ color: "rgba(245,235,224,0.75)", fontSize: 14.5 }}>contato@wrcafebar.com</Typography>
+              </Stack>
+            </Stack>
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={4}>
+            <Typography sx={{ fontFamily: '"Playfair Display"', fontSize: 20, fontWeight: 700, mb: 2.5, color: "#e8b86d" }}>
+              Horários
+            </Typography>
+            <Stack spacing={1.2}>
+              {[
+                ["Segunda", "Fechado"],
+                ["Terça – Quinta", "17h às 23h"],
+                ["Sexta – Sábado", "17h às 02h"],
+                ["Domingo", "12h às 22h"],
+              ].map(([d, t]) => (
+                <Stack key={d} direction="row" justifyContent="space-between">
+                  <Typography sx={{ color: "rgba(245,235,224,0.75)", fontSize: 14 }}>{d}</Typography>
+                  <Typography sx={{ color: t === "Fechado" ? "rgba(245,235,224,0.4)" : "#f4d29a", fontWeight: 600, fontSize: 14 }}>
+                    {t}
+                  </Typography>
+                </Stack>
+              ))}
+            </Stack>
+          </Grid>
+        </Grid>
+
+        <Divider sx={{ my: 5, borderColor: "rgba(232,184,109,0.15)" }} />
+
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={1.5}
+        >
+          <Typography sx={{ color: "rgba(245,235,224,0.5)", fontSize: 13 }}>
+            © {new Date().getFullYear()} WR Café Bar. Todos os direitos reservados.
+          </Typography>
+          <Typography sx={{ color: "rgba(245,235,224,0.4)", fontSize: 12.5, letterSpacing: ".05em" }}>
+            Feito com café ☕ e carinho
+          </Typography>
+        </Stack>
+      </Container>
+    </Box>
+  );
 }
